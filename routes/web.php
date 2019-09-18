@@ -19,3 +19,7 @@ Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
