@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/prefecture', 'PrefectureController@index');
+//Route::group(['prefix' => 'prefecture'], function (){
+    //Route::get('/show', 'PrefectureController@show')->name('pref.show');
+//});
