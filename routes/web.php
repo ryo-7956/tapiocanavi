@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prefecture', 'PrefectureController@index');
-//Route::group(['prefix' => 'prefecture'], function (){
-    //Route::get('/show', 'PrefectureController@show')->name('pref.show');
-//});
+Route::group(['prefix' => 'prefecture'], function (){
+Route::get('/', 'PrefectureController@index');
+Route::get('/{roman}', 'PrefectureController@show')->name('pref.show');
+});

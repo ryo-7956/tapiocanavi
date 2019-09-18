@@ -11,5 +11,9 @@ class PrefectureController extends Controller
         $prefectures = Prefecture::all();
         //dd($prefectures->toArray());
         return view('pref.index', ['prefectures' => $prefectures]);
-}
+    }
+
+    public function show($roman) {
+        return view('pref.show');
+    }
 }
