@@ -8,8 +8,6 @@
         <title>タピオカなび</title>
     </head>
     <body>
-    @foreach ($prefectures as $prefecture)
-  <li><a href="/prefecture/{{ $prefecture->id }}">{{ $prefecture->name }}</a></li> 
-  @endforeach
+    <a>{{ $prefecture->name }}</a>
     </body>
 </html>

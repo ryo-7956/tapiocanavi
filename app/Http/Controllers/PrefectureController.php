@@ -13,7 +13,9 @@ class PrefectureController extends Controller
         return view('pref.index', ['prefectures' => $prefectures]);
     }
 
-    public function show($roman) {
-        return view('pref.show');
+    public function show($id) {
+        $prefecture = Prefecture::findorFail($id);
+        //dd($prefecture);
+        return view('pref.show', compact('prefecture'));
     }
 }

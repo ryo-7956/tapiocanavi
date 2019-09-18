@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index');
-Route::get('/{roman}', 'PrefectureController@show')->name('pref.show');
+Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 });
