@@ -8,6 +8,6 @@
         <title>タピオカなび</title>
     </head>
     <body>
-
+    <a>{{ $prefecture->name }}</a>
     </body>
 </html>

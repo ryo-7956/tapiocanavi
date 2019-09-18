@@ -15,7 +15,7 @@ class PrefectureController extends Controller
 
     public function show($id) {
         $prefecture = Prefecture::findorFail($id);
-        dd($prefecture);
-        return view('pref.show');
+        //dd($prefecture);
+        return view('pref.show', compact('prefecture'));
     }
 }
