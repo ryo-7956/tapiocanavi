@@ -8,6 +8,6 @@
         <title>タピオカなび</title>
     </head>
     <body>
-  <a>a</a>
+  <a>{{ $shop->shop_name }}</a>
     </body>
 </html>

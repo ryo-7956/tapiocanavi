@@ -20,7 +20,7 @@ class PrefectureController extends Controller
         return view('pref.show', compact('prefecture'));
     }
 
-    public function shop($shop_id) {
+    public function shop($id,$shop_id) {
         $shop = Shop::findorFail($shop_id);
         //dd($shop);
         return view('pref.shop', compact('shop'));
