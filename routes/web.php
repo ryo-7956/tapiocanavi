@@ -20,10 +20,13 @@ Route::get('/', function () {
 Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
+Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 });
 
-Route::get('/shop/{shop_id}', 'ShopController@index');
-
+//Route::group(['prefix' => 'shop'], function (){
+//Route::get()
+//Route::get('/{shop_id}', 'ShopController@index');
+//});
 
 //Route::get('/', function () { return redirect('/home'); });
 Route::get('/home', 'HomeController@index')->name('home');
