@@ -22,7 +22,7 @@ Route::get('/', 'PrefectureController@index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 });
 
-Route::get('/shop/{shop_id}', 'ShopController@index');
+Route::get('/{shop_id}', 'ShopController@index');
 
 
 //Route::get('/', function () { return redirect('/home'); });
