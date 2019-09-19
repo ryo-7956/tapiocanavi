@@ -22,6 +22,8 @@ Route::get('/', 'PrefectureController@index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 });
 
+Route::get('/shop/{shop_id}', 'ShopController@index');
+
 
 //Route::get('/', function () { return redirect('/home'); });
 Route::get('/home', 'HomeController@index')->name('home');
