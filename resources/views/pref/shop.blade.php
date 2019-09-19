@@ -8,13 +8,6 @@
         <title>タピオカなび</title>
     </head>
     <body>
-    <a>{{ $prefecture->name }}</a>
-    <ul>
-    @forelse ($prefecture->shops as $shop)
-    <li><a href="/prefecture/{{ $prefecture->id }}/{{ $shop->shop_id }}">{{ $shop->shop_name }}</a></li>
-    @empty
-    <li>No shops yet</li>
-    @endforelse
-    <ul>
+  <a>a</a>
     </body>
 </html>
