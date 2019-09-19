@@ -18,11 +18,11 @@ class CreateShopsTable extends Migration
             $table->string('shop_name');
             $table->text('shop_address');
             $table->text('shop_description');
-            $table->unsignedInteger('shop_admin_id');
-            $table->unsignedInteger('shop_prefecture_id');
+            $table->unsignedInteger('admin_id');
+            $table->unsignedInteger('prefecture_id');
             $table->timestamps();
-            $table->foreign('shop_admin_id')->references('id')->on('admins');
-            $table->foreign('shop_prefecture_id')->references('id')->on('prefectures');
+            $table->foreign('admin_id')->references('id')->on('admins');
+            $table->foreign('prefecture_id')->references('id')->on('prefectures');
         });
     }
 
