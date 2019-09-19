@@ -9,5 +9,12 @@
     </head>
     <body>
     <a>{{ $prefecture->name }}</a>
+    <ul>
+    @forelse ($prefecture->shops as $shop)
+    <li>{{ $shop->shop_name }}</li>
+    @empty
+    <li>No shops yet</li>
+    @endforelse
+    <ul>
     </body>
 </html>
