@@ -21,13 +21,9 @@ Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 });
 
-//Route::group(['prefix' => 'shop'], function (){
-//Route::get()
-//Route::get('/{shop_id}', 'ShopController@index');
-//});
-
-//Route::get('/', function () { return redirect('/home'); });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+    Route::get('show/{id}', 'UsersController@show')->name('users.show');
+});
 
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
