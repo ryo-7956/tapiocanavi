@@ -16,4 +16,8 @@ class Shop extends Model
     public function admin() {
         return $this->belongsTo('App\Admin');
     }
+
+    public function reviews() {
+        return $this->belongsTo('App\Review');
+    }
 }
