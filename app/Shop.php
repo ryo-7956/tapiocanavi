@@ -18,6 +18,6 @@ class Shop extends Model
     }
 
     public function reviews() {
-        return $this->belongsTo('App\Review');
+        return $this->hasMany('App\Review');
     }
 }
