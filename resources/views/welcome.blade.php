@@ -179,7 +179,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="styled-heading">
-                        <h3>Featured Places</h3>
+                        <h3>新着口コミ</h3>
                     </div>
                 </div>
             </div>
