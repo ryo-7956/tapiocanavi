@@ -7,6 +7,7 @@ use App\User;
 use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
+use App\Http\Requests\ProfileRequest;
 
 class UsersController extends Controller
 {
@@ -22,7 +23,7 @@ class UsersController extends Controller
         return view('users.edit', compact('user')); 
     }
 
-    public function update(Request $request, $id)
+    public function update($id, ProfileRequest $request)
     {
 
         $user = User::findorFail($id);
