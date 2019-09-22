@@ -297,7 +297,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="featured-btn-wrap">
-                        <a href="#" class="btn btn-danger">VIEW ALL</a>
+                        <a href="/review" class="btn btn-danger">他のレビューも見てみる</a>
                     </div>
                 </div>
             </div>
