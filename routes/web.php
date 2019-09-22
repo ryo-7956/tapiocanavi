@@ -25,6 +25,8 @@ Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 });
 
+Route::resource('review', 'ReviewController');
+
 //誰でもみれるユーザー画面
 Route::get('users/{id}', 'UsersController@index')->name('users.show');
 
