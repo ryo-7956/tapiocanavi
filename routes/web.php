@@ -13,7 +13,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index');
@@ -26,6 +28,8 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('edit/{id}', 'UsersController@edit')->name('users.edit');
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
 });
+
+Route::get('users/{id}', 'UsersController@index')->name('users.show');
 
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');

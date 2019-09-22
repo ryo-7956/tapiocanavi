@@ -50,4 +50,10 @@ class UsersController extends Controller
 
         return redirect()->to('home'); 
     }
+
+    public function index($id)
+    {
+        $user = User::findorFail($id);
+        return view('users.index', compact('user'));
+    }
 }
