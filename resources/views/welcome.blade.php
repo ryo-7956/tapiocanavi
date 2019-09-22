@@ -3,23 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="Colorlib">
         <meta name="description" content="#">
         <meta name="keywords" content="#">
 
         <title>タピオカなび</title>
 
-        <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap&subset=cyrillic,japanese" rel="stylesheet">
-        <!-- Simple line Icon -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="css/simple-line-icons.css">
-        <!-- Themify Icon -->
         <link rel="stylesheet" href="css/themify-icons.css">
-        <!-- Hover Effects -->
         <link rel="stylesheet" href="css/set1.css">
-        <!-- Main CSS -->
         <link rel="stylesheet" href="css/style.css">       
             
     </head>
@@ -36,7 +30,29 @@
                             </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
-                                    <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                                @guest
+                                <li><a href="{{ route('login') }}">ログイン</a></li>
+                                <li><a href="{{ route('register') }}">新規登録</a></li>
+                                @else
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
                                 </ul>
                             </div>
                         </nav>
@@ -287,29 +303,6 @@
             </div>
         </div>
     </section>
-    <!--//END FEATURED PLACES -->
-    <!--============================= ADD LISTING =============================-->
-    <section class="main-block light-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="add-listing-wrap">
-                        <h2>Reach millions of People</h2>
-                        <p>Add your Business infront of millions and earn 3x profits from our listing</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="featured-btn-wrap">
-                        <a href="#" class="btn btn-danger"><span class="ti-plus"></span> ADD LISTING</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--//END ADD LISTING -->
-    <!--============================= FOOTER =============================-->
     <footer class="main-block dark-bg">
         <div class="container">
             <div class="row">
@@ -355,7 +348,5 @@
         });
     </script>
 </body>
-
 </html>
-    </body>
-</html>
+   
