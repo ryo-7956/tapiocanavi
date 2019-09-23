@@ -53,7 +53,7 @@
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
                         <div class="review-btn">
-                            <a href="#" class="btn btn-outline-danger">この店のレビューを書く</a>
+                            <a href="/review/create" class="btn btn-outline-danger">この店のレビューを書く</a>
                             <span>34 reviews</span>
                         </div>
                         <div class="reserve-btn">

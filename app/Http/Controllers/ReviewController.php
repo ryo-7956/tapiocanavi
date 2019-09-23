@@ -10,7 +10,7 @@ class ReviewController extends Controller
     // getでreview/にアクセスした時
     public function index()
     {
-        $reviews = Review::all()->paginate(10);
+        $reviews = Review::all();
         return view('review.index', ['reviews' => $reviews]);
     }
 
