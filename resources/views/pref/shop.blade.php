@@ -52,15 +52,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
+                        @auth
                         <div class="review-btn">
                             <a href="/review/create" class="btn btn-outline-danger">この店のレビューを書く</a>
-                            <span>34 reviews</span>
                         </div>
-                        <div class="reserve-btn">
-                            <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">RESERVE A SEAT</a>
-                            </div>
+                        @endauth
+                        @guest
+                        <div class="review-btn">
+                            <a href="/login" class="btn btn-outline-danger">ログインしてこの店のレビューを書く</a>
                         </div>
+                        @endguest
                     </div>
                 </div>
             </div>
@@ -83,7 +84,6 @@
                             <div class="customer-img">
                                 <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
                                 <p>Amanda G</p>
-                                <span>35 Reviews</span>
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
@@ -96,7 +96,7 @@
                                         <span class="round-icon-blank"></span>
                                         <p>Reviewed 2 days ago</p>
                                     </div>
-                                    <div class="customer-rating">8.0</div>
+                                
                                 </div>
                                 <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
                                     hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
@@ -110,7 +110,6 @@
                                     <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
                                     <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
                                 </ul>
-                                <span>28 people marked this review as helpful</span>
                                 <a href="#"><span class="icon-like"></span>Helpful</a>
                             </div>
                         </div>

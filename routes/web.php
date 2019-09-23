@@ -14,9 +14,7 @@
 Auth::routes();
 
 //トップページ
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
 //場所から探す
 Route::group(['prefix' => 'prefecture'], function (){
@@ -28,7 +26,7 @@ Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 Route::resource('review', 'ReviewController');
 
 //誰でもみれるユーザー画面
-Route::get('users/{id}', 'UsersController@index')->name('users.show');
+Route::get('users/{id}', 'UsersController@index')->name('users.index');
 
 //ログインユーザー画面
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
