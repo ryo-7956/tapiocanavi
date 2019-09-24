@@ -18,6 +18,6 @@ class Shop extends Model
     }
 
     public function reviews() {
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review', 'review_shop_id', 'shop_id');
     }
 }

@@ -52,15 +52,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
+                        @auth
                         <div class="review-btn">
-                            <a href="#" class="btn btn-outline-danger">この店のレビューを書く</a>
-                            <span>34 reviews</span>
+                            <a href="/review/create" class="btn btn-outline-danger">この店のレビューを書く</a>
                         </div>
-                        <div class="reserve-btn">
-                            <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">RESERVE A SEAT</a>
-                            </div>
+                        @endauth
+                        @guest
+                        <div class="review-btn">
+                            <a href="/login" class="btn btn-outline-danger">ログインしてこの店のレビューを書く</a>
                         </div>
+                        @endguest
                     </div>
                 </div>
             </div>
@@ -81,36 +82,39 @@
                         <hr>
                         <div class="customer-review_wrap">
                             <div class="customer-img">
+                            @forelse ($shop->reviews as $review)
+                                        <h6>{{ $review->review_comment }}</h6>
+                            @empty
+                            <a>No reviews yet</a>
+                            @endforelse
+
+
+
                                 <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
-                                <p>Amanda G</p>
-                                <span>35 Reviews</span>
+                                <p></p>
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
                                     <div class="customer-review">
-                                        <h6>Best noodles in the Newyork city</h6>
+                                        <h6></h6>
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span class="round-icon-blank"></span>
-                                        <p>Reviewed 2 days ago</p>
+                                        <p></p>
                                     </div>
-                                    <div class="customer-rating">8.0</div>
+                                
                                 </div>
-                                <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
-                                    hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
-                                    dipped in their chili sauce.
+                                <p class="customer-text">
                                 </p>
-                                <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
-                                    to bring cash.
+                                <p class="customer-text">
                                 </p>
                                 <ul>
                                     <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
                                     <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
                                     <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
                                 </ul>
-                                <span>28 people marked this review as helpful</span>
                                 <a href="#"><span class="icon-like"></span>Helpful</a>
                             </div>
                         </div>

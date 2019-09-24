@@ -14,21 +14,20 @@
 Auth::routes();
 
 //トップページ
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
 //場所から探す
 Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index')->name('pref.index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
+Route::get('/{id}/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
 });
 
 Route::resource('review', 'ReviewController');
 
 //誰でもみれるユーザー画面
-Route::get('users/{id}', 'UsersController@index')->name('users.show');
+Route::get('users/{id}', 'UsersController@index')->name('users.index');
 
 //ログインユーザー画面
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {

@@ -10,7 +10,7 @@ class ReviewController extends Controller
     // getでreview/にアクセスした時
     public function index()
     {
-        $reviews = Review::all()->paginate(10);
+        $reviews = Review::all();
         return view('review.index', ['reviews' => $reviews]);
     }
 
@@ -20,11 +20,17 @@ class ReviewController extends Controller
         return view('review.create');
     }
 
-    // postでhello/にアクセスされた場合
-    //public function store()
-    //{
-        
-    //}
+    // postでreview/にアクセスした場合
+    public function store(Request $request)
+    {
+        $review = new Review();
+        $review->user_id = $request -> user()->id;
+        $review->review_shop_id = $request -> shop()->shop_id;
+        $review->title = $request->title;
+        $review->review_comment = $request->comment;
+        $review->save();
+        return redirect('/');
+    }
 
     // getでhello/messageにアクセスされた場合
     //public function show($message)
