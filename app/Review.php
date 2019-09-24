@@ -9,7 +9,7 @@ class Review extends Model
     protected $primaryKey = 'review_id';
 
     public function shop() {
-        return $this->belongsTo('App\Shop');
+        return $this->belongsTo('App\Shop', 'shop_id', 'review_shop_id');
     }
 
     public function user() {
