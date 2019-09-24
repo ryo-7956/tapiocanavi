@@ -21,6 +21,7 @@ Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index')->name('pref.index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
+Route::get('/{id}/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
 });
 
 Route::resource('review', 'ReviewController');
