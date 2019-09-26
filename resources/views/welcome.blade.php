@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/simple-line-icons.css">
         <link rel="stylesheet" href="css/themify-icons.css">
         <link rel="stylesheet" href="css/set1.css">
-        <link rel="stylesheet" href="css/style.css">       
+               
             
     </head>
     <body>
@@ -31,8 +31,8 @@
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
                                 @guest
-                                <li><a href="{{ route('login') }}">ログイン</a></li>
-                                <li><a href="{{ route('register') }}">新規登録</a></li>
+                                <li class="nav-item"><a href="{{ route('login') }}">ログイン</a></li>
+                                <li class="nav-item"><a href="{{ route('register') }}">新規登録</a></li>
                                 @else
                                 <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -76,10 +76,9 @@
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4">
+                                <form action="{{ url('search') }}" method="get"　class="form-wrap mt-4">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="場所・駅 [例 渋谷、横浜]" class="btn-group1">
-                                        <input type="text" placeholder="店名 [例 Gong cha]" class="btn-group2">
+                                        <input type="text" placeholder="場所・駅 [例 渋谷、横浜]" class="btn-group1" name="place">
                                         <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>検索<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
@@ -188,8 +187,7 @@
             </div>
         </div>
     </section>
-    <!--//END FIND PLACES -->
-    <!--============================= FEATURED PLACES =============================-->
+
     <section class="main-block light-bg">
         <div class="container">
             <div class="row justify-content-center">
@@ -307,43 +305,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <ul>
-                            <li><a href="#"><span class="ti-facebook"></span></a></li>
-                            <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
-                            <li><a href="#"><span class="ti-instagram"></span></a></li>
-                        </ul>
+                    <div class="copyright">    
+                        <p>Copyright &copy; <a>2019 タピオカなび </a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!--//END FOOTER -->
 
-
-
-
-    <!-- jQuery, Bootstrap JS. -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <script>
         $(window).scroll(function() {
-            // 100 = The point you would like to fade the nav in.
-
             if ($(window).scrollTop() > 100) {
-
                 $('.fixed').addClass('is-sticky');
-
             } else {
-
                 $('.fixed').removeClass('is-sticky');
-
             };
         });
     </script>
