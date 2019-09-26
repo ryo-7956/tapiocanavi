@@ -17,22 +17,22 @@
   </div>
   @endif
 
-    <form class="form mt-5" method="POST" action="/review" enctype="multipart/form-data">
+    <form class="form mt-5" method="POST" action="/{{ $shop->shop_id }}/review/create" enctype="multipart/form-data">
     {{ csrf_field() }}
       <div class="form-group">
         <label>タイトル</label>
-        <input type="text" name="name" class="form-control">
+        <input type="text" name="review_title" class="form-control">
   
     </div>
       <div class="form-group">
         <label>レビュー</label>
-        <textarea class="form-control" name="self_introduction" rows="10"></textarea>
+        <textarea class="form-control" name="review_comment" rows="10"></textarea>
         </div>  
     </div>
     <label for="file_photo" class="rounded-circle userProfileImg">
         <div class="userProfileImg_description">画像をアップロード</div>
         <i class="fas fa-camera fa-3x"></i>
-        <input type="file" id="file_photo" name="image">
+        <input type="file" id="file_photo" name="review_date">
         <div class="userImgPreview" id="userImgPreview">
         <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
         <p class="userImgPreview_text">画像をアップロード済み</p>

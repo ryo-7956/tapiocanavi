@@ -21,10 +21,15 @@ Route::group(['prefix' => 'prefecture'], function (){
 Route::get('/', 'PrefectureController@index')->name('pref.index');
 Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
-Route::get('/{id}/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
 });
 
+//Route::get('/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
+Route::get('/{shop_id}/review', 'prefectureController@reviewcr')->name('review.create');
+Route::post('{shop_id}/review/create', 'ReviewController@store');
+
 Route::resource('review', 'ReviewController');
+
+//Route::get('search', 'SearchController');
 
 //誰でもみれるユーザー画面
 Route::get('users/{id}', 'UsersController@index')->name('users.index');
