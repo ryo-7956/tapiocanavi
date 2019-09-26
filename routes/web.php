@@ -29,7 +29,8 @@ Route::post('{shop_id}/review/create', 'ReviewController@store');
 
 Route::resource('review', 'ReviewController');
 
-//Route::get('search', 'SearchController');
+Route::get('search', 'SearchController@search');
+
 
 //誰でもみれるユーザー画面
 Route::get('users/{id}', 'UsersController@index')->name('users.index');

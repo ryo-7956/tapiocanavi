@@ -17017,7 +17017,7 @@ p {
 
 .btn-group1 {
   padding: 24px;
-  width: 40%;
+  width: 80%;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border: none;
@@ -18047,5 +18047,26 @@ footer {
 #map {
   height: 100%;
   width: 100%;
+}
+
+.userEditPage .header {
+  padding: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  background: #fd5068;
+  color: #fff;
+}
+
+.userEditPage .submitBtn {
+  background: #fd5068;
+  color: #fff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s;
+}
+
+.userEditPage .submitBtn:hover {
+  opacity: 0.6;
 }
 
