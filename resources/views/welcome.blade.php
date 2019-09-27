@@ -39,7 +39,7 @@
                                 </li>
                                 @else
                                 <li class="nav-item">
-                                <a href="/home" class="nav-link" >
+                                <a href="/users/show/{{ Auth::user()->id }}" class="nav-link" >
                                     マイページ</a>
                                     </li>
                                     <li class="nav-item">
