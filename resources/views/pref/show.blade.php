@@ -12,12 +12,9 @@
     <title>タピオカなび</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="css/simple-line-icons.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/set1.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -32,7 +29,30 @@
             </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
-                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                            @guest
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="nav-link">ログイン</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}" class="nav-link">新規登録</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                <a href="/home" class="nav-link" >
+                                    マイページ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="nav-link">
+                                            ログアウト
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                    @endguest
                             </ul>
                         </div>
                     </nav>
@@ -48,7 +68,6 @@
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
                                 <h3>{{ $prefecture->name }}</h3>
-                                <!--<p>34 Results For <span>Restaurant</span></p>-->
                             </div>
                         </div>
                     </div>                    
@@ -79,16 +98,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright &copy; <a>2019 タピオカなび </a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- jQuery, Bootstrap JS. -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -100,12 +116,10 @@
         });
     </script>
     <script>
-        // Want to customize colors? go to snazzymaps.com
         function myMap() {
             var maplat = $('#map').data('lat');
             var maplon = $('#map').data('lon');
             var mapzoom = $('#map').data('zoom');
-            // Styles a map in night mode.
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
                     lat: maplat,
@@ -124,7 +138,6 @@
             });
         }
     </script>
-    <!-- Map JS (Please change the API key below. Read documentation for more info) -->
     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
 </body>
 
