@@ -244,7 +244,7 @@ p {
 }
 
 .btn-group {
-    width: 100%;
+    width: 70%;
     @media (max-width: 576px) {
         display: block;
     }
@@ -252,7 +252,7 @@ p {
 
 .btn-group1 {
     padding: 24px;
-    width: 80%;
+    width: 100%;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     border: none;
