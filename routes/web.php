@@ -31,10 +31,6 @@ Route::resource('review', 'ReviewController');
 
 Route::get('search', 'SearchController@search');
 
-
-//誰でもみれるユーザー画面
-Route::get('users/{id}', 'UsersController@index')->name('users.index');
-
 //ログインユーザー画面
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');

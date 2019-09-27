@@ -39,7 +39,7 @@
                                 </li>
                                 @else
                                 <li class="nav-item">
-                                <a href="#" class="nav-link" >
+                                <a href="/home" class="nav-link" >
                                     マイページ</a>
                                     </li>
                                     <li class="nav-item">
@@ -53,7 +53,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                        @endguest
+                                    @endguest
                                 </ul>
                             </div>
                         </nav>

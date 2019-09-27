@@ -8,19 +8,16 @@
     <meta name="author" content="Colorlib">
     <meta name="description" content="#">
     <meta name="keywords" content="#">
-    
     <link rel="shortcut icon" href="#">
     
     <title>タピオカなび</title>
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="css/simple-line-icons.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/set1.css">
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -35,7 +32,30 @@
             </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
-                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                            @guest
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="nav-link">ログイン</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}" class="nav-link">新規登録</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                <a href="/home" class="nav-link" >
+                                    マイページ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="nav-link">
+                                            ログアウト
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                    @endguest
                             </ul>
                         </div>
                     </nav>
@@ -128,32 +148,22 @@
             </div>
         </div>
     </section>
-    <!--//END BOOKING DETAILS -->
-    <!--============================= FOOTER =============================-->
     <footer class="main-block dark-bg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
-                        <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p>Copyright &copy; <a>2019 タピオカなび </a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-
-
-
-
-    <!-- jQuery, Bootstrap JS. -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- Magnific popup JS -->
     <script src="js/jquery.magnific-popup.js"></script>
-    <!-- Swipper Slider JS -->
     <script src="js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
