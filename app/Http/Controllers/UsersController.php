@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Review;
 use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    public function index($id)
+    {
+        $user = Auth::user($id);
+
+        $user_id = $user->id;
+        $reviews = Review::findorFail($user_id);
+        return view('review.index', compact('reviews','user'));
+    }
+
     public function show($id)
     {
         $user = User::findorFail($id);
@@ -51,9 +62,4 @@ class UsersController extends Controller
         return redirect()->to('home'); 
     }
 
-    public function index($id)
-    {
-        $user = User::findorFail($id);
-        return view('users.index', compact('user'));
-    }
 }

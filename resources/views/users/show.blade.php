@@ -21,7 +21,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a href="/home" class="nav-link" >
+                                    <a href="/users/show/{{ Auth::user()->id }}" class="nav-link" >
                                     マイページ</a>
                                 </li>
                                 <li class="nav-item">
@@ -66,7 +66,7 @@
         </div>
       @endif
         <div class='userAction_logout userAction_common'>
-        <a href="/"><i class="fas fa-cog fa-2x"></i></a>
+        <a href="/users/review/{{ $user->id }}"><i class="fas fa-cog fa-2x"></i></a>
           <span>書いたレビュー</span>
       </div>
     

@@ -8,10 +8,10 @@
         <title>タピオカなび</title>
     </head>
     <body>
-    @forelse ($reviews as $review)
-    <a>{{ $review->review_comment }}</a>
-    @empty
-    <a>No shops yet</a>
-    @endforelse
+    @forelse ($user->reviews as $review)
+            <h1>{{ $review->review_title }}</h1>
+            @empty
+            <a>No reviews yet</a>
+            @endforelse
     </body>
 </html>

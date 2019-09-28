@@ -134,28 +134,25 @@
             <div class="row">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <a href="">
                             <img src="images/featured1.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating-orange">6.5</span>
+                            
                             <div class="featured-title-box">
                                 <h6>Burger & Lobster</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
                                 <ul>
                                     <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
+                                        <p></p>
                                     </li>
                                     <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
+                                        <p></p>
                                     </li>
                                     <li><span class="icon-link"></span>
-                                        <p>https://burgerandlobster.com</p>
+                                        <p></p>
                                     </li>
 
                                 </ul>
                                 <div class="bottom-icons">
-                                    <div class="closed-now">CLOSED NOW</div>
+                                    <div class="closed-now"></div>
                                     <span class="ti-heart"></span>
                                     <span class="ti-bookmark"></span>
                                 </div>
