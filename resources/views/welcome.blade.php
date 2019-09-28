@@ -3,28 +3,26 @@
 @section('content')
     <section class="slider d-flex align-items-center">
         <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-12">
-                    <div class="slider-title_box">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="slider-content_wrap">
-                                    <h1>タピオカ店の口コミサイト</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-10">
-                                <form action="{{ url('search') }}" method="get"　class="form-wrap mt-4">
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="場所・店名 [例 東京、Gongcha(ゴンチャ)]" class="btn-group1" name="place">
-                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>検索<i class="pe-7s-angle-right"></i></button>
-                                    </div>
-                                </form>
+            <div class="row d-flex justify-content-center">                
+                <div class="slider-title_box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="slider-content_wrap">
+                                <h1>タピオカ店の口コミサイト</h1>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10">
+                            <form action="{{ url('search') }}" method="get"　class="form-wrap mt-4">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <input type="text" placeholder="場所・店名 [例 東京、Gongcha(ゴンチャ)]" class="btn-group1" name="place">
+                                    <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>検索<i class="pe-7s-angle-right"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>   
             </div>
         </div>
     </section>
