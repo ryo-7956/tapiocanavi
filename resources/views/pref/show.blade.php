@@ -25,8 +25,8 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="/">タピオカなび</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
+                            <span class="icon-menu"></span>
+                        </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                             @guest
@@ -36,23 +36,21 @@
                                 <li class="nav-item">
                                     <a href="{{ route('register') }}" class="nav-link">新規登録</a>
                                 </li>
-                                @else
+                            @else
                                 <li class="nav-item">
-                                <a href="/home" class="nav-link" >
-                                    マイページ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="nav-link">
-                                            ログアウト
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    @endguest
+                                <a href="/home" class="nav-link" >マイページ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" class="nav-link">
+                                        ログアウト
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            @endguest
                             </ul>
                         </div>
                     </nav>
@@ -60,6 +58,7 @@
             </div>
         </div>
     </div>
+
     <section>
         <div class="container-fluid">
             <div class="row">

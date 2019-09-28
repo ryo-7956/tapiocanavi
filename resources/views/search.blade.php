@@ -8,9 +8,13 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                @forelse ($shops as $shop)
                 </div>
+                <h6>{{ $shop->shop_name}}</h6>
             </div>
+            @empty
+                        <a>No shops yet</a>
+                        @endforelse
         </div>
     </div>
 </div>

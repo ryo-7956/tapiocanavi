@@ -8,28 +8,22 @@ use App\shop;
 class SearchController extends Controller
 {
     public function search(Request $request) {
-        //キーワードを取得
+
         $place = $request->input('place');
-        $name = $request->input('shop');
 
         $query = shop::query();
+        
+        if(!empty($place)){   
+            $query->where('shop_address', 'like', '%'.$place.'%')
+            ->orWhere('shop_name', 'Like', '%'.$place.'%');
+        }
 
-        //もしキーワードが入力されている場合
-        if(!empty($place)|!empty($name)){   
-            //shopsテーブルのshop_addressから検索
-            $query->where('shop_address', 'like', '%'.$place.'%');
-            $query->where('shop_name', 'like', '%'.$name.'%');
+        else{
+            return view('welcome');
         }
 
         $shops = $query->get();
-        //検索フォームへ
         return view('search')
-        ->with('shops',$shops);
-
-        //else{//キーワードが入力されていない場合
-            //return view('welcome');
-        
-        //}
-        
+        ->with('shops',$shops);  
     }
 }

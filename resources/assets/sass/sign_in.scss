@@ -1,7 +1,7 @@
 .signinPage {
     margin-top: 10vh;
     .title {
-      color:#bf5329;;
+      color:#3e434b;
       margin: 20px 0;
       text-align: center;
     }
@@ -10,17 +10,21 @@
       height: 120px;
       border-radius: 50%;
       margin: 0 auto;
-      background: #bf5329;
+      background: #3e434b;
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    .form-group {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
     .loginBtn {
       padding: 12px;
       width: 200px;
       border-radius: 21px;
-      background: #bf5329;;
+      background: #3e434b;
       color: #fff;
       text-align: center;
       border: none;

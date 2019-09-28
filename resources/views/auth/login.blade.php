@@ -26,6 +26,9 @@
       <div class="linkToLogin">
         <a href="{{ route('register') }}">アカウント作成はこちら</a>
       </div>
+      <div class="linkToLogin">
+        <a href="/">トップページへ戻る</a>
+      </div>
     </form>
   </div>
 </div>
