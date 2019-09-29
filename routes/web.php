@@ -34,6 +34,7 @@ Route::get('search', 'SearchController@search');
 //ログインユーザー画面
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');
+    Route::get('review/{id}','UsersController@index')->name('review.index');
     Route::get('edit/{id}', 'UsersController@edit')->name('users.edit');
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
 });

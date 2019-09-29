@@ -8,12 +8,13 @@ use App\shop;
 
 class ReviewController extends Controller
 {
-    // getでreview/にアクセスした時
-    public function index()
-    {
-        $reviews = Review::all();
-        return view('review.index', ['reviews' => $reviews]);
-    }
+    
+    //public function index($id)
+    //{
+        //$user_id = $id;
+        //$reviews = Review::findorFail($user_id);
+        //return view('review.index', ['reviews' => $reviews]);
+    //}
 
     //getでreview/createにアクセスした時
     public function create()

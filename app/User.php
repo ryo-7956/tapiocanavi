@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    protected $primaryKey = 'id';
+
     use Notifiable;
 
     /**
@@ -28,6 +30,6 @@ class User extends Authenticatable
     ];
 
     public function reviews() {
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review', 'user_id', 'id');
     }
 }
