@@ -1,3 +1,4 @@
+@if($user->id == Auth::id())
 @extends('layouts.layout')
 
 @section('content')
@@ -59,3 +60,4 @@
         </div>
     </div>
 @endsection
+@endif
