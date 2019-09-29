@@ -59,7 +59,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect()->to('home'); 
+        return redirect()->to('/'); 
     }
 
 }

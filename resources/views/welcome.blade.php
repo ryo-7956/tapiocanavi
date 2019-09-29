@@ -178,12 +178,12 @@
                                         <p>+44 20 7336 8898</p>
                                     </li>
                                     <li><span class="icon-link"></span>
-                                        <p>https://burgerandlobster.com</p>
+                                        <p></p>
                                     </li>
 
                                 </ul>
                                 <div class="bottom-icons">
-                                    <div class="closed-now">CLOSED NOW</div>
+                                    <div class="closed-now"></div>
                                     <span class="ti-heart"></span>
                                     <span class="ti-bookmark"></span>
                                 </div>
