@@ -15,7 +15,7 @@ class ProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class ProfileRequest extends FormRequest
      */
     public function rules()
     {
+        $myEmail = Auth::user()->email;
+
         return [
             'name' => 'required|string|max:255',
             'email' => [Rule::unique('users', 'email')->whereNot('email', $myEmail)],

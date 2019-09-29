@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="Colorlib">
-        <meta name="description" content="#">
+        <meta name="description" content="タピオカ店専門の口コミサイト">
         <meta name="keywords" content="タピオカ、口コミ">
 
         <title>タピオカなび</title>
@@ -17,8 +17,8 @@
     </head>
     <body>
     <div class="nav-menu">
-        <div class="bg transition">
-            <div class="container-fluid fixed">
+        <div class="dark-bg sticky-top">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
@@ -28,29 +28,28 @@
                             </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
-                                @guest
-                                <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="nav-link">ログイン</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('register') }}" class="nav-link">新規登録</a>
-                                </li>
-                                @else
-                                <li class="nav-item">
-                                <a href="/users/show/{{ Auth::user()->id }}" class="nav-link" >
-                                    マイページ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('logout') }}"
+                                    @guest
+                                        <li class="nav-item">
+                                            <a href="{{ route('login') }}" class="nav-link">ログイン</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('register') }}" class="nav-link">新規登録</a>
+                                        </li>
+                                    @else
+                                        <li class="nav-item">
+                                            <a href="/users/show/{{ Auth::user()->id }}" class="nav-link" >
+                                            マイページ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="nav-link">
-                                            ログアウト
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
+                                            document.getElementById('logout-form').submit();" class="nav-link">
+                                                ログアウト
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
                                     @endguest
                                 </ul>
                             </div>
@@ -76,16 +75,6 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-    <script>
-        $(window).scroll(function() {
-            if ($(window).scrollTop() > 100) {
-                $('.fixed').addClass('is-sticky');
-            } else {
-                $('.fixed').removeClass('is-sticky');
-            };
-        });
-    </script>
 </body>
 </html>
    
