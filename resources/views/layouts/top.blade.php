@@ -1,19 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="author" content="Colorlib">
-        <meta name="description" content="タピオカ店専門の口コミサイト">
-        <meta name="keywords" content="タピオカ、口コミ">
 
         <title>タピオカなび</title>
 
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="css/simple-line-icons.css">
-        <link rel="stylesheet" href="css/themify-icons.css">
-        <link rel="stylesheet" href="css/set1.css">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="css/simple-line-icons.css" rel="stylesheet">
+        <link href="css/themify-icons.css" rel="stylesheet">
+        <link href="css/set1.css" rel="stylesheet">
     </head>
     <body>
     <div class="nav-menu">
