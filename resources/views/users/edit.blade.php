@@ -1,5 +1,5 @@
 @if($user->id == Auth::id())
-@extends('layouts.layout')
+@extends('layouts.layout2')
 
 @section('content')
     <div class="signupPage">

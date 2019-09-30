@@ -16703,6 +16703,7 @@ body {
 .usershowPage .userAction {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 30px;
   width: 250px;
   margin: 20vh auto 0;
   color: #c3c7d0;
