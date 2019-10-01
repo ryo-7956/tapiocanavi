@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <label>自己紹介文</label>
-                    <textarea class="form-control" name="self_introduction" value="{{ $user->self_introduction }}" rows="6"></textarea>
+                    <textarea class="form-control" name="self_introduction" rows="6">{{ $user->self_introduction }}</textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn submitBtn">変更する</button>

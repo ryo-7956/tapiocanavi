@@ -17,16 +17,16 @@
   </div>
   @endif
 
-    <form class="form mt-5" method="POST" action="/{{ $shop->shop_id }}/review/create" enctype="multipart/form-data">
+    <form class="form mt-5" method="POST" action="/review/update/{{ $review->review_id }}" enctype="multipart/form-data">
     {{ csrf_field() }}
       <div class="form-group">
         <label>タイトル</label>
-        <input type="text" name="review_title" class="form-control">
+        <input type="text" name="review_title" class="form-control" value="{{ $review->review_title }}">
   
     </div>
       <div class="form-group">
         <label>レビュー</label>
-        <textarea class="form-control" name="review_comment" rows="10"></textarea>
+        <textarea class="form-control" name="review_comment" rows="10">{{ $review->review_comment }}</textarea>
         </div>  
     </div>
     <label for="file_photo" class="rounded-circle userProfileImg">

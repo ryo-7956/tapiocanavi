@@ -29,6 +29,9 @@ Route::post('{shop_id}/review/create', 'ReviewController@store');
 
 //Route::resource('review', 'ReviewController');
 //Route::get('review/show/{review_id}', 'ReviewController@show');
+Route::get('review/edit/{review_id}', 'ReviewController@edit');
+Route::post('review/update/{review_id}', 'ReviewController@update');
+Route::delete('review/delete/{review_id}', 'ReviewController@delete')->name('review.delete');
 
 Route::get('search', 'SearchController@search');
 
@@ -36,7 +39,7 @@ Route::get('search', 'SearchController@search');
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');
     Route::get('review/{id}','UsersController@index')->name('review.index');
-    Route::get('review/show/{review_id}', 'ReviewController@show');
+    Route::get('review/{id}/show/{review_id}', 'ReviewController@show');
     Route::get('edit/{id}', 'UsersController@edit')->name('users.edit');
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
 });
