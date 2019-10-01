@@ -27,7 +27,8 @@ Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 Route::get('/{shop_id}/review', 'prefectureController@reviewcr')->name('review.create');
 Route::post('{shop_id}/review/create', 'ReviewController@store');
 
-Route::resource('review', 'ReviewController');
+//Route::resource('review', 'ReviewController');
+//Route::get('review/show/{review_id}', 'ReviewController@show');
 
 Route::get('search', 'SearchController@search');
 
@@ -35,6 +36,7 @@ Route::get('search', 'SearchController@search');
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');
     Route::get('review/{id}','UsersController@index')->name('review.index');
+    Route::get('review/show/{review_id}', 'ReviewController@show');
     Route::get('edit/{id}', 'UsersController@edit')->name('users.edit');
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
 });

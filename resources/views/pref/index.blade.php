@@ -1,4 +1,4 @@
-@extends('layouts.pref')
+@extends('layouts.layout1')
 
 @section('content')
     <section class="reserve-block">

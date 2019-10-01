@@ -35,20 +35,15 @@ class ReviewController extends Controller
         return redirect('/');
     }
 
-    // getでhello/messageにアクセスされた場合
-    //public function show($message)
-    //{
-        
-    //}
+    
+    public function show($review_id)
+    {
+        $review = Review::findorFail($review_id);
+        return view('review.show', compact('review')); 
+    }
 
     // getでhello/message/editにアクセスされた場合
     //public function edit($message)
-    //{
-        
-    //}
-
-    // putまたはpatchでhello/messageにアクセスされた場合
-    //public function update($message)
     //{
         
     //}

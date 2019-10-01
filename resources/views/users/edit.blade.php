@@ -1,4 +1,5 @@
-@extends('layouts.layout')
+@if($user->id == Auth::id())
+@extends('layouts.layout2')
 
 @section('content')
     <div class="signupPage">
@@ -59,3 +60,4 @@
         </div>
     </div>
 @endsection
+@endif

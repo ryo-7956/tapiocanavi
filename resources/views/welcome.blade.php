@@ -127,7 +127,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="styled-heading">
-                        <h3>新着口コミ</h3>
+                        <h3>新着店舗</h3>
                     </div>
                 </div>
             </div>
@@ -172,10 +172,10 @@
                                 <p><span>$$$</span>$$</p>
                                 <ul>
                                     <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
+                                        <p></p>
                                     </li>
                                     <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
+                                        <p></p>
                                     </li>
                                     <li><span class="icon-link"></span>
                                         <p></p>
@@ -195,29 +195,25 @@
                     <div class="featured-place-wrap">
                         <a href="detail.html">
                             <img src="images/featured3.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating">3.2</span>
+                            <span class="featured-rating"></span>
                             <div class="featured-title-box">
-                                <h6>Tasty Hand-Pulled Noodles</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
+                                <h6></h6>
+                                <p></p> <span></span>
+                                <p></p> <span></span>
+                                <p><span></span></p>
                                 <ul>
                                     <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
+                                        <p></p>
                                     </li>
                                     <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
+                                        <p></p>
                                     </li>
                                     <li><span class="icon-link"></span>
-                                        <p>https://burgerandlobster.com</p>
+                                        <p></p>
                                     </li>
 
                                 </ul>
-                                <div class="bottom-icons">
-                                    <div class="open-now">OPEN NOW</div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
+                                
                             </div>
                         </a>
                     </div>
@@ -226,7 +222,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="featured-btn-wrap">
-                        <a href="/review" class="btn btn-danger">他のレビューも見てみる</a>
+                        <a href="/review" class="btn btn-danger">店舗一覧へ</a>
                     </div>
                 </div>
             </div>
