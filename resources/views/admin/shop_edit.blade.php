@@ -15,39 +15,37 @@
                     </ul>
                 </div>
             @endif
-            <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">
+            <form class="form mt-5" method="POST" action="/admin/shop/update/{{ $shop->shop_id }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <label for="file_photo" class="rounded-circle userProfileImg">
                     <div class="userProfileImg_description">画像をアップロード</div>
                     <i class="fas fa-camera fa-3x"></i>
-                    <input type="file" id="file_photo" name="image">
+                    <input type="file" id="file_photo" name="shop_img">
                 </label>
                 <div class="userImgPreview" id="userImgPreview">
                     <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
                     <p class="userImgPreview_text">画像をアップロード済み</p>
                 </div>
                 <div class="form-group">
-                    <label>名前</label>
-                    <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+                    <label>店名</label>
+                    <input type="text" name="shop_name" class="form-control" value="{{ $shop->shop_name }}">
                 </div>
                 <div class="form-group">
-                    <label>メールアドレス</label>
-                    <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+                    <div><label>都道府県番号</label></div>
+                    <select name="prefecture_id">
+                    <option selected>{{ $shop->prefecture_id }}</option>
+                    @foreach($prefectures as $prefecture )
+                    <option>{{ $prefecture->id }}.{{ $prefecture->name }}</option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                    <div><label>性別</label></div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="sex" value="0" type="radio" id="inlineRadio1" checked>
-                        <label class="form-check-label" for="inlineRadio1">男</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="sex" value="1" type="radio" id="inlineRadio2">
-                        <label class="form-check-label" for="inlineRadio2">女</label>
-                    </div>
+                    <label>店住所</label>
+                    <input type="text" name="shop_address" class="form-control" value="{{ $shop->shop_address }}">
                 </div>
                 <div class="form-group">
-                    <label>自己紹介文</label>
-                    <textarea class="form-control" name="self_introduction" rows="6">{{ $user->self_introduction }}</textarea>
+                    <label>店詳細</label>
+                    <textarea class="form-control" name="shop_description" rows="6">{{ $shop->shop_description }}</textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn submitBtn">変更する</button>

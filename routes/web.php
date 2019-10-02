@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
     Route::get('shop', 'ShopController@shop');
     Route::get('shop/show/{shop_id}', 'ShopController@show');
-    Route::get('shop/edit/{shop_id}', 'shopController@edit');
-    
+    Route::get('shop/edit/{shop_id}', 'ShopController@edit');
+    Route::post('shop/update/{shop_id}', 'ShopController@update');
+    Route::delete('shop/delete/{shop_id}', 'ShopContloller@delete');
 });

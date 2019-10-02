@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use App\Prefecture;
 
 class ShopController extends Controller
 {
@@ -22,7 +23,13 @@ class ShopController extends Controller
     public function edit($shop_id)
     {
         $shop = shop::findOrFail($shop_id);
-        return view('admin.shop_edit', compact('shop'));
+        $prefectures = Prefecture::all();
+        return view('admin.shop_edit', compact('shop','prefectures'));
+    }
+
+    public function update(Request $request)
+    {
+        
     }
 
 }

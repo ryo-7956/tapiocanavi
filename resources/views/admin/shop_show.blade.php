@@ -9,6 +9,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
+                    <div class="review-btn">
+                        <a href="/admin/shop/edit/{{ $shop->shop_id }}" class="btn btn-outline-danger">店情報を編集する</a>
+                    </div>
+                    <div class="review-btn">
+                        <form method="post" action="/">
+                      {{ csrf_field() }}
+                      {{ method_field('delete') }}
+                      <input type="submit" value="店情報を削除" class="btn btn-outline-danger" onclick='return confirm("マジで削除すんの？");'>
+                    </form>
+                    </div>
                     </div>
                 </div>
             </div>
