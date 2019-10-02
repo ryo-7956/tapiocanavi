@@ -29,28 +29,33 @@ Route::post('{shop_id}/review/create', 'ReviewController@store');
 
 //Route::resource('review', 'ReviewController');
 //Route::get('review/show/{review_id}', 'ReviewController@show');
+Route::get('review/edit/{review_id}', 'ReviewController@edit');
+Route::post('review/update/{review_id}', 'ReviewController@update');
+Route::delete('review/delete/{review_id}', 'ReviewController@delete')->name('review.delete');
 
 Route::get('search', 'SearchController@search');
 
 //ログインユーザー画面
-Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'users', 'middleware' => 'auth:user'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');
     Route::get('review/{id}','UsersController@index')->name('review.index');
-    Route::get('review/show/{review_id}', 'ReviewController@show');
+    Route::get('review/{id}/show/{review_id}', 'ReviewController@show');
     Route::get('edit/{id}', 'UsersController@edit')->name('users.edit');
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
 });
 
-//管理人ユーザー機能
-Route::group(['middleware' => 'auth:user'], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
-});
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/',         function () { return redirect('/admin/home'); });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login',    'Admin\LoginController@login');
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
-    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-    Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('shop', 'ShopController@shop');
+    Route::get('shop/show/{shop_id}', 'ShopController@show');
+    Route::get('shop/edit/{shop_id}', 'ShopController@edit');
+    Route::post('shop/update/{shop_id}', 'ShopController@update');
+    Route::delete('shop/delete/{shop_id}', 'ShopContloller@delete');
 });

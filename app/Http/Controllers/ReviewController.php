@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Review;
 use App\shop;
+use App\User;
 
 class ReviewController extends Controller
 {
@@ -36,21 +37,36 @@ class ReviewController extends Controller
     }
 
     
-    public function show($review_id)
+    public function show($id,$review_id)
     {
+        
         $review = Review::findorFail($review_id);
         return view('review.show', compact('review')); 
     }
 
-    // getでhello/message/editにアクセスされた場合
-    //public function edit($message)
-    //{
-        
-    //}
+    
+    public function edit($review_id)
+    {
 
-    // deleteでhello/messageにアクセスされた場合
-    //public function destroy($message)
-    //{
-        
-    //}
+        $review = Review::findorFail($review_id);
+        return view('review.edit', compact('review'));    
+    }
+
+    public function update($review_id, Request $request)
+    {
+        $review = Review::findOrFail($review_id);
+        $review->review_title = $request->review_title;
+        $review->review_comment = $request->review_comment;
+        $review->review_date = $request->review_date;
+
+        $review->save();
+        return redirect()->to('/users/review/{id}');
+    }
+
+    
+    public function delete(Request $request)
+    {
+        Review::find($request->review_id)->delete();
+        return redirect()->to('/users/review/{id}');
+    }
 }

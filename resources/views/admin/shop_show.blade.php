@@ -1,28 +1,24 @@
-
 @extends('layouts.layout1')
 
 @section('content')
-<section class="reserve-block">
+    <section class="reserve-block">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5></h5>
+                    <h5>{{ $shop->shop_name }}</h5>
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
-                    
                     <div class="review-btn">
-                        <a href="/review/edit/{{ $review->review_id }}" class="btn btn-outline-danger">このレビューを編集する</a>
+                        <a href="/admin/shop/edit/{{ $shop->shop_id }}" class="btn btn-outline-danger">店情報を編集する</a>
                     </div>
                     <div class="review-btn">
-                        <form method="post" action="/review/delete/{{ $review->review_id }}">
+                        <form method="post" action="/">
                       {{ csrf_field() }}
                       {{ method_field('delete') }}
-                      <input type="submit" value="レビュー削除" class="btn btn-outline-danger" onclick='return confirm("マジで削除すんの？");'>
+                      <input type="submit" value="店情報を削除" class="btn btn-outline-danger" onclick='return confirm("マジで削除すんの？");'>
                     </form>
                     </div>
-                    
-                    
                     </div>
                 </div>
             </div>
@@ -35,17 +31,18 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <p>{{ $review->review_title}}</p>
+                            <p>{{ $shop->shop_description}}</p>
                             <hr>
                         </div>
                     <div class="booking-checkbox_wrap mt-4">
                         <h5></h5>
                         <hr>
                         <div class="customer-review_wrap">
-                            <div class="customer-img">
-                            
-                                        <h6>{{ $review->review_comment }}</h6>
-                            
+
+
+
+
+                                <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
                                 <p></p>
                             </div>
                             <div class="customer-content-wrap">
@@ -65,7 +62,12 @@
                                 </p>
                                 <p class="customer-text">
                                 </p>
-                               
+                                <ul>
+                                    <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
+                                    <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
+                                    <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
+                                </ul>
+                                <a href="#"><span class="icon-like"></span>Helpful</a>
                             </div>
                         </div>
                         <hr>
@@ -78,5 +80,4 @@
             </div>
         </div>
     </section>
-
 @endsection

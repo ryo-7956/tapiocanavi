@@ -1,11 +1,11 @@
 @extends('layouts.layout1')
 
 @section('content')
-<section class="reserve-block">
+    <section class="reserve-block">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>検索結果</h2>
+                    <h2>店一覧</h2>
                 </div>
             </div>
         </div>
@@ -18,18 +18,16 @@
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
                           <div class="row">
-                          @forelse ($shops as $shop)
+                          @foreach ($shops as $shop)
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                                   <span class="ti-check-box"></span>
                                     <span class="custom-control-description">
-                                        <a href="/prefecture/{{ $shop->prefecture_id }}/{{ $shop->shop_id }}">{{ $shop->shop_name}}</a>
+                                        <a href="/admin/shop/show/{{ $shop->shop_id }}">{{ $shop->shop_name }}</a>
                                     </span>
                                 </label> 
                             </div>
-                            @empty
-                            <a>No shops yet
-                            @endforelse
+                            @endforeach
                           </div>
                         </div>
                     </div>
@@ -37,5 +35,4 @@
             </div>
         </div>
     </section>
-        
 @endsection

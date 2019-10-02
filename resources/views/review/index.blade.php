@@ -24,7 +24,7 @@
                                 <label class="custom-checkbox">
                                   <span class="ti-check-box"></span>
                                     <span class="custom-control-description">
-                                        <a href="show/{{ $review->review_id }}">{{ $review->review_title }}</a>
+                                        <a href="{{ $user->id }}/show/{{ $review->review_id }}">{{ $review->review_title }}</a>
                                     </span>
                                 </label> 
                             </div>
