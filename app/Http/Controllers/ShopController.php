@@ -7,8 +7,22 @@ use App\Shop;
 
 class ShopController extends Controller
 {
-    public function index($shop_id) {
-        $shop = Shop::findorFail($shop_id);
-        return view('shop.index', compact('shop'));
+    public function shop() 
+    {
+        $shops = Shop::all();
+        return view('admin.shop', compact('shops'));
     }
+    
+    public function show($shop_id)
+    {
+        $shop = shop::findOrFail($shop_id);
+        return view('admin.shop_show', compact('shop'));
+    }
+
+    public function edit($shop_id)
+    {
+        $shop = shop::findOrFail($shop_id);
+        return view('admin.shop_edit', compact('shop'));
+    }
+
 }

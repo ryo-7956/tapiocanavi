@@ -36,7 +36,7 @@ Route::delete('review/delete/{review_id}', 'ReviewController@delete')->name('rev
 Route::get('search', 'SearchController@search');
 
 //ログインユーザー画面
-Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'users', 'middleware' => 'auth:user'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');
     Route::get('review/{id}','UsersController@index')->name('review.index');
     Route::get('review/{id}/show/{review_id}', 'ReviewController@show');
@@ -44,16 +44,17 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
 });
 
-//管理人ユーザー機能
-Route::group(['middleware' => 'auth:user'], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
-});
+
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/',         function () { return redirect('/admin/home'); });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login',    'Admin\LoginController@login');
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
-    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-    Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('shop', 'ShopController@shop');
+    Route::get('shop/show/{shop_id}', 'ShopController@show');
+    Route::get('shop/edit/{shop_id}', 'shopController@edit');
+    
 });
