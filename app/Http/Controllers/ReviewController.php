@@ -17,13 +17,12 @@ class ReviewController extends Controller
         //return view('review.index', ['reviews' => $reviews]);
     //}
 
-    //getでreview/createにアクセスした時
+    
     public function create()
     {
         return view('review.create');
     }
 
-    // postでreview/にアクセスした場合
     public function store(Request $request,$shop_id)
     {
         $review = new Review();

@@ -132,92 +132,27 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($shops as $shop)
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="">
-                            <img src="images/featured1.jpg" class="img-fluid" alt="#">
+                            <img src="/storage/images/{{ $shop->shop_img }}" class="img-fluid" alt="#">
                             
                             <div class="featured-title-box">
-                                <h6>Burger & Lobster</h6>
+                                <h6>{{ $shop->shop_name }}</h6>
                                 <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p></p>
-                                    </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p></p>
-                                    </li>
+                                    <li><span></span>
+                                        <p>{{ $shop->shop_address}}</p>
+                                    </li> 
                                     <li><span class="icon-link"></span>
-                                        <p></p>
+                                        <p>{{ $shop->shop_description}}</p>
                                     </li>
-
                                 </ul>
-                                <div class="bottom-icons">
-                                    <div class="closed-now"></div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="images/featured2.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating-green">9.5</span>
-                            <div class="featured-title-box">
-                                <h6>Joe’s Shanghai</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
-                                <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p></p>
-                                    </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p></p>
-                                    </li>
-                                    <li><span class="icon-link"></span>
-                                        <p></p>
-                                    </li>
-
-                                </ul>
-                                <div class="bottom-icons">
-                                    <div class="closed-now"></div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="images/featured3.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating"></span>
-                            <div class="featured-title-box">
-                                <h6></h6>
-                                <p></p> <span></span>
-                                <p></p> <span></span>
-                                <p><span></span></p>
-                                <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p></p>
-                                    </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p></p>
-                                    </li>
-                                    <li><span class="icon-link"></span>
-                                        <p></p>
-                                    </li>
-
-                                </ul>
-                                
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-4">
