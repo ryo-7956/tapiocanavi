@@ -14,7 +14,7 @@
 Auth::routes();
 
 //トップページ
-Route::get('/', function () {return view('welcome');});
+Route::get('/', 'ShopController@index');
 
 //場所から探す
 Route::group(['prefix' => 'prefecture'], function (){
@@ -57,5 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('shop/show/{shop_id}', 'ShopController@show');
     Route::get('shop/edit/{shop_id}', 'ShopController@edit');
     Route::post('shop/update/{shop_id}', 'ShopController@update');
-    Route::delete('shop/delete/{shop_id}', 'ShopContloller@delete');
+    Route::delete('shop/delete/{shop_id}', 'ShopController@delete');
+    Route::get('shop/create', 'ShopController@create');
+    Route::post('shop/store', 'ShopController@store');
 });

@@ -7,6 +7,11 @@
                 <div class="col-md-6">
                     <h2>店一覧</h2>
                 </div>
+                <div class="col-md-6">
+                    <div class="reserve-seat-block">
+                    <div class="review-btn">
+                        <a href="/admin/shop/create" class="btn btn-outline-danger">店情報を新規作成</a>
+                    </div>
             </div>
         </div>
     </section>
