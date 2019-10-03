@@ -368,31 +368,3 @@
     color: #737882;
 }
 
-.map-wrap {
-    padding: 0;
-}
-
-.map-fix {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 41.7%;
-    @media (max-width: 992px) {
-        display: none;
-        top: 17%;
-        left: 0;
-        width: 100%;
-    }
-    @media (max-width: 480px) {
-        top: 24%;
-    }
-    @media (max-width: 365px) {
-        top: 29.3%;
-    }
-}
-
-#map {
-    height: 100%;
-    width: 100%;
-}
