@@ -53,7 +53,7 @@
                 <div class="text-center">
                     <button type="submit" class="btn submitBtn">変更する</button>
                     <div class="linkToLogin">
-                        <a href="/">トップページへ戻る</a>
+                        <a href="/users/show/{{ $user->id }}">マイページへ戻る</a>
                     </div>
                 </div>
             </form>
