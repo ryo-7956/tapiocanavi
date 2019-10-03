@@ -133,31 +133,30 @@
             </div>
             <div class="row">
                 @foreach($shops as $shop)
-                <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
-                        <a href="">
-                            <img src="/storage/images/{{ $shop->shop_img }}" class="img-fluid" alt="#">
-                            
-                            <div class="featured-title-box">
-                                <h6>{{ $shop->shop_name }}</h6>
-                                <ul>
-                                    <li><span></span>
-                                        <p>{{ $shop->shop_address}}</p>
-                                    </li> 
-                                    <li><span class="icon-link"></span>
-                                        <p>{{ $shop->shop_description}}</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
+                    <div class="col-md-4 featured-responsive">
+                        <div class="featured-place-wrap">
+                            <a href="/prefecture/{{ $shop->prefecture_id }}/{{ $shop->shop_id }}">
+                                <img src="/storage/images/{{ $shop->shop_img }}" class="img-fluid" alt="#">
+                                <div class="featured-title-box">
+                                    <h6>{{ $shop->shop_name }}</h6>
+                                    <ul>
+                                        <li><span></span>
+                                            <p>{{ $shop->shop_address}}</p>
+                                        </li> 
+                                        <li><span class="icon-link"></span>
+                                            <p>{{ $shop->shop_description}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="featured-btn-wrap">
-                        <a href="/review" class="btn btn-danger">店舗一覧へ</a>
+                        <a href="/shop/all" class="btn btn-danger">店舗一覧へ</a>
                     </div>
                 </div>
             </div>
