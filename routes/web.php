@@ -35,6 +35,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth:user'], function () {
     Route::get('show/{id}', 'UsersController@show')->name('users.show');
     Route::get('edit/{id}', 'UsersController@edit')->name('users.edit');
     Route::post('update/{id}', 'UsersController@update')->name('users.update');
+    Route::delete('delete/{id}', 'UsersController@delete')->name('users.delete');
     Route::get('show/{id}/review','ReviewController@index')->name('review.index');
     Route::get('review/{review_id}', 'ReviewController@show');
     Route::get('review/edit/{review_id}', 'ReviewController@edit');

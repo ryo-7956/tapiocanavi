@@ -59,4 +59,9 @@ class UsersController extends Controller
         return redirect()->to('/'); 
     }
 
+    public function delete(Request $request)
+    {
+        User::find($request->id)->delete();
+        return redirect()->to('/');
+    }
 }
