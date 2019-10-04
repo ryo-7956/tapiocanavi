@@ -140,11 +140,11 @@
                                 <div class="featured-title-box">
                                     <h6>{{ $shop->shop_name }}</h6>
                                     <ul>
-                                        <li><span></span>
-                                            <p>{{ $shop->shop_address}}</p>
+                                        <li><span class="icon-link"></span>
+                                            <p>{{ str_limit("$shop->shop_address",$limit =20,'…') }}</p>
                                         </li> 
                                         <li><span class="icon-link"></span>
-                                            <p>{{ $shop->shop_description}}</p>
+                                            <p>{{ str_limit("$shop->shop_description",$limit =30,'…') }}</p>
                                         </li>
                                     </ul>
                                 </div>

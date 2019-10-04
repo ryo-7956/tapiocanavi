@@ -38,7 +38,7 @@ class ReviewController extends Controller
     
     public function show($id,$review_id)
     {
-        
+        $user = Auth::user($id);
         $review = Review::findorFail($review_id);
         return view('review.show', compact('review')); 
     }
@@ -46,7 +46,7 @@ class ReviewController extends Controller
     
     public function edit($review_id)
     {
-
+        $user = Auth::user($id);
         $review = Review::findorFail($review_id);
         return view('review.edit', compact('review'));    
     }

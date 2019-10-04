@@ -16,7 +16,6 @@ class UsersController extends Controller
     public function index($id)
     {
         $user = Auth::user($id);
-
         $user_id = $user->id;
         $reviews = Review::findorFail($user_id);
         return view('review.index', compact('reviews','user'));
