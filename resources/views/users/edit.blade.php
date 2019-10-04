@@ -57,6 +57,15 @@
                     </div>
                 </div>
             </form>
+            <div class="text-center">
+                <div class="linkToLogin">
+                    <form method="post" action="/users/delete/{{ $user->id }}">
+                        {{ csrf_field() }}
+                        {{ method_field('delete') }}
+                        <input type="submit" value="ユーザー削除" class="btn btn-outline-danger" onclick='return confirm("マジで削除すんの？");'>
+                    </form>
+                </div>
+            </div>  
         </div>
     </div>
 @endsection

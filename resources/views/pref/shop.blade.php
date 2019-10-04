@@ -30,58 +30,51 @@
             <div class="row">
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
-                        <div class="booking-checkbox">
-                            <p>{{ $shop->shop_description}}</p>
+                        <div class="booking-checkbox_wrap mt-4">
+                            <h5>この店のレビュー</h5>
                             <hr>
-                        </div>
-                    <div class="booking-checkbox_wrap mt-4">
-                        <h5></h5>
-                        <hr>
-                        <div class="customer-review_wrap">
-                            <div class="customer-img">
                             @forelse ($shop->reviews as $review)
-                                        <h6>{{ $review->review_comment }}</h6>
-                            @empty
-                            <a>No reviews yet</a>
-                            @endforelse
-
-
-
-                                <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
-                                <p></p>
-                            </div>
-                            <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6></h6>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p></p>
+                                <div class="customer-review_wrap">
+                                    <div class="customer-img">
+                                        <img src="/storage/images/{{ $review->user->img_name }}" class="img-fluid-user" alt="#">
+                                        <p>{{ $review->user->name }}</p>
                                     </div>
-                                
+                                    <div class="customer-content-wrap">
+                                        <div class="customer-content">
+                                            <div class="customer-review">
+                                                <h6>{{ $review->review_title }}</h6>
+                                                <p>投稿日</p><p>{{ $review->created_at }}</p>
+                                            </div>
+                                        </div>
+                                        <p class="customer-text">{{ $review->review_comment }}</p>
+                                        <ul>
+                                            <li><img src="/storage/images/{{ $review->review_date }}" class="img-fluid-revi" alt="#"></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <p class="customer-text">
-                                </p>
-                                <p class="customer-text">
-                                </p>
-                                <ul>
-                                    <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
-                                </ul>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
-                            </div>
+                                <hr>
+                            @empty
+                            <h6>まだこの店に対するレビューはありません。</h6>
+                            @endforelse 
                         </div>
-                        <hr>
-                        
-                            
                     </div>
                 </div>
-                    
-                </div>
+                    <div class="col-md-4 responsive-wrap">
+                        <div class="contact-info">
+                            <img src="/storage/images/{{ $shop->shop_img }}" class="img-fluid" alt="#">
+                            <div class="address">
+                                <span class="icon-location-pin"></span>
+                                <p>【場所】</p>
+                                <p>{{ $shop->shop_address }}</p>
+                            </div>
+                            <div class="address">
+                                <span class="icon-link"></span>
+                                <p>【店情報】</p>
+                                <p>{{ $shop->shop_description}}</p>
+                            </div>
+                        </div> 
+                    </div>
+                
             </div>
         </div>
     </section>

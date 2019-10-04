@@ -70,9 +70,9 @@ class RegisterController extends Controller
 
         $imageFile = $data['image'];
 
-        $list = FileUploadServices::fileUpload($imageFile); //変更
+        $list = FileUploadServices::fileUpload($imageFile); 
 
-        list($extension, $fileNameToStore, $fileData) = $list; //変更
+        list($extension, $fileNameToStore, $fileData) = $list; 
 
         $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
         
