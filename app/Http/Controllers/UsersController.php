@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
-    public function index($id)
+    public function index()
     {
-        $user = Auth::user($id);
-        $user_id = $user->id;
-        $reviews = Review::findorFail($user_id);
-        return view('review.index', compact('reviews','user'));
+        $user = Auth::user();
+        return view('users.show', compact('user'));
     }
 
     public function show($id)

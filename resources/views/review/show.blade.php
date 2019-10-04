@@ -12,10 +12,10 @@
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
                         <div class="review-btn">
-                            <a href="/review/edit/{{ $review->review_id }}" class="btn btn-outline-danger">このレビューを編集する</a>
+                            <a href="/users/review/edit/{{ $review->review_id }}" class="btn btn-outline-danger">このレビューを編集する</a>
                         </div>
                         <div class="review-btn">
-                            <form method="post" action="/review/delete/{{ $review->review_id }}">
+                            <form method="post" action="/users/review/delete/{{ $review->review_id }}">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
                                 <input type="submit" value="レビュー削除" class="btn btn-outline-danger" onclick='return confirm("マジで削除すんの？");'>
@@ -42,7 +42,8 @@
                                 </p>
                             </div>
                         </div>
-                        <hr>     
+                        <hr>
+                        <img src="/storage/images/{{ $review->review_date }}" class="img-fluid" alt="#">
                     </div>
                 </div>
             </div>

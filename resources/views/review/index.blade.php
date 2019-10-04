@@ -23,12 +23,14 @@
                                 <label class="custom-checkbox">
                                   <span class="ti-check-box"></span>
                                     <span class="custom-control-description">
-                                        <a href="{{ $user->id }}/show/{{ $review->review_id }}">{{ str_limit("$review->review_title",$limit =10,'…') }}</a>
+                                        <a href="/users/review/{{ $review->review_id }}">{{ str_limit("$review->review_title",$limit =10,'…') }}</a>
                                     </span>
                                 </label> 
                             </div>
                             @empty
-                            <a>No reviews yet</a>
+                            <span class="custom-control-description">
+                            <a>まだ書いたレビューはありません</a>
+                            </span>
                             @endforelse
                           </div>
                         </div>

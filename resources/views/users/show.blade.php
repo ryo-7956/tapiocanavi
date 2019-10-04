@@ -17,7 +17,7 @@
                         <span>情報を編集</span>
                     </div>
                     <div class='userAction_logout userAction_common'>
-                        <a href="/users/review/{{ $user->id }}"><i class="fas fa-cog fa-2x"></i></a>
+                        <a href="/users/show/{{ $user->id}}/review"><i class="fas fa-cog fa-2x"></i></a>
                         <span>書いたレビュー</span>
                     </div>
                 </div>

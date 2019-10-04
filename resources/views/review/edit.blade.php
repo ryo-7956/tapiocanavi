@@ -17,7 +17,7 @@
   </div>
   @endif
 
-    <form class="form mt-5" method="POST" action="/review/update/{{ $review->review_id }}" enctype="multipart/form-data">
+    <form class="form mt-5" method="POST" action="/users/review/update/{{ $review->review_id }}" enctype="multipart/form-data">
     {{ csrf_field() }}
       <div class="form-group">
         <label>タイトル</label>

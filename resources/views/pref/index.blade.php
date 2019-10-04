@@ -10,7 +10,6 @@
             </div>
         </div>
     </section>
-
     <section class="light-bg booking-details_wrap">
         <div class="container">
             <div class="row">
