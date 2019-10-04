@@ -6,12 +6,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>{{ $user->name }}さんの書いたレビュー一覧</h4>
+                    <h4>{{ $user->name }}さんの書いたレビュー</h4>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="light-bg booking-details_wrap">
         <div class="container">
             <div class="row">
@@ -24,12 +23,14 @@
                                 <label class="custom-checkbox">
                                   <span class="ti-check-box"></span>
                                     <span class="custom-control-description">
-                                        <a href="{{ $user->id }}/show/{{ $review->review_id }}">{{ $review->review_title }}</a>
+                                        <a href="/users/review/{{ $review->review_id }}">{{ str_limit("$review->review_title",$limit =10,'…') }}</a>
                                     </span>
                                 </label> 
                             </div>
                             @empty
-                            <a>No reviews yet</a>
+                            <span class="custom-control-description">
+                            <a>まだ書いたレビューはありません</a>
+                            </span>
                             @endforelse
                           </div>
                         </div>

@@ -17,7 +17,7 @@
   </div>
   @endif
 
-    <form class="form mt-5" method="POST" action="/review/update/{{ $review->review_id }}" enctype="multipart/form-data">
+    <form class="form mt-5" method="POST" action="/users/review/update/{{ $review->review_id }}" enctype="multipart/form-data">
     {{ csrf_field() }}
       <div class="form-group">
         <label>タイトル</label>
@@ -33,11 +33,12 @@
         <div class="userProfileImg_description">画像をアップロード</div>
         <i class="fas fa-camera fa-3x"></i>
         <input type="file" id="file_photo" name="review_date">
+        </label>
         <div class="userImgPreview" id="userImgPreview">
         <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
         <p class="userImgPreview_text">画像をアップロード済み</p>
       </div>
-      </label>
+    
 
       <div class="text-center">
       <button type="submit" class="btn submitBtn">投稿</button>
