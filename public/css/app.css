@@ -515,6 +515,16 @@ mark,
   height: auto;
 }
 
+.img-fluid-user {
+  width: 70px;
+  height: auto;
+}
+
+.img-fluid-revi {
+  width: 200px;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #f5f8fa;
