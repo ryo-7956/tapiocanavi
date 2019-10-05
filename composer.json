@@ -50,6 +50,12 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "sniffer": [
+            "./vendor/bin/phpcs --standard=phpcs.xml ./"
+        ],
+        "sniffer-rewrite": [
+            "./vendor/bin/phpcbf --standard=phpcs.xml ./"
         ]
     },
     "config": {

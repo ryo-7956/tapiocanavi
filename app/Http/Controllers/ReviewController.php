@@ -22,7 +22,7 @@ class ReviewController extends Controller
     public function show($review_id)
     {
         $review = Review::findorFail($review_id);
-        return view('review.show', compact('review')); 
+        return view('review.show', compact('review'));
     }
     
     public function create()
@@ -30,19 +30,19 @@ class ReviewController extends Controller
         return view('review.create');
     }
 
-    public function store(Request $request,$shop_id)
+    public function store(Request $request, $shop_id)
     {
         $imageFile = $request['review_date'];
 
-        $list = FileUploadServices::fileUpload($imageFile); 
+        $list = FileUploadServices::fileUpload($imageFile);
 
-        list($extension, $fileNameToStore, $fileData) = $list; 
+        list($extension, $fileNameToStore, $fileData) = $list;
 
         $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
         
         $review_date = Image::make($data_url);
         
-        $review_date->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+        $review_date->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
         $review = new Review();
         $review->user_id = $request -> user()->id;
@@ -57,22 +57,22 @@ class ReviewController extends Controller
     public function edit($review_id)
     {
         $review = Review::findorFail($review_id);
-        return view('review.edit', compact('review'));    
+        return view('review.edit', compact('review'));
     }
 
     public function update($review_id, Request $request)
     {
         $review = Review::findOrFail($review_id);
 
-        if(!is_null($request['review_date'])){
+        if (!is_null($request['review_date'])) {
             $imageFile = $request['review_date'];
 
             $list = FileUploadServices::fileUpload($imageFile);
             list($extension, $fileNameToStore, $fileData) = $list;
             
             $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-            $image = Image::make($data_url);        
-            $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+            $image = Image::make($data_url);
+            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
             $review->review_date = $fileNameToStore;
         }

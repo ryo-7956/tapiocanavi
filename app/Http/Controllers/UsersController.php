@@ -28,7 +28,7 @@ class UsersController extends Controller
     {
         $user = User::findorFail($id);
 
-        return view('users.edit', compact('user')); 
+        return view('users.edit', compact('user'));
     }
 
     public function update($id, ProfileRequest $request)
@@ -36,15 +36,15 @@ class UsersController extends Controller
 
         $user = User::findorFail($id);
 
-        if(!is_null($request['img_name'])){
+        if (!is_null($request['img_name'])) {
             $imageFile = $request['img_name'];
 
             $list = FileUploadServices::fileUpload($imageFile);
             list($extension, $fileNameToStore, $fileData) = $list;
             
             $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-            $image = Image::make($data_url);        
-            $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+            $image = Image::make($data_url);
+            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
             $user->img_name = $fileNameToStore;
         }
@@ -56,7 +56,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect()->to('/'); 
+        return redirect()->to('/');
     }
 
     public function delete(Request $request)

@@ -70,15 +70,15 @@ class RegisterController extends Controller
 
         $imageFile = $data['image'];
 
-        $list = FileUploadServices::fileUpload($imageFile); 
+        $list = FileUploadServices::fileUpload($imageFile);
 
-        list($extension, $fileNameToStore, $fileData) = $list; 
+        list($extension, $fileNameToStore, $fileData) = $list;
 
         $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
         
         $image = Image::make($data_url);
         
-        $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+        $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
         return User::create([
             'name' => $data['name'],

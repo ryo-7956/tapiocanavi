@@ -23,7 +23,7 @@ class ShopController extends Controller
         return view('shop.all', compact('shops'));
     }
 
-    public function shop() 
+    public function shop()
     {
         $shops = Shop::all();
         return view('admin.shop', compact('shops'));
@@ -45,15 +45,15 @@ class ShopController extends Controller
     {
         $imageFile = $request['shop_img'];
 
-        $list = FileUploadServices::fileUpload($imageFile); 
+        $list = FileUploadServices::fileUpload($imageFile);
 
-        list($extension, $fileNameToStore, $fileData) = $list; 
+        list($extension, $fileNameToStore, $fileData) = $list;
 
         $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
         
         $shop_img = Image::make($data_url);
         
-        $shop_img->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+        $shop_img->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
         $shop = new Shop();
         $shop->shop_name = $request->shop_name;
@@ -70,22 +70,22 @@ class ShopController extends Controller
     {
         $shop = shop::findOrFail($shop_id);
         $prefectures = Prefecture::all();
-        return view('admin.shop_edit', compact('shop','prefectures'));
+        return view('admin.shop_edit', compact('shop', 'prefectures'));
     }
 
     public function update(Request $request, $shop_id)
     {
         $shop = Shop::findOrFail($shop_id);
 
-        if(!is_null($request['shop_img'])){
+        if (!is_null($request['shop_img'])) {
             $imageFile = $request['shop_img'];
 
             $list = FileUploadServices::fileUpload($imageFile);
             list($extension, $fileNameToStore, $fileData) = $list;
             
             $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-            $image = Image::make($data_url);        
-            $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+            $image = Image::make($data_url);
+            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
             $shop->shop_img = $fileNameToStore;
         }
@@ -97,7 +97,7 @@ class ShopController extends Controller
 
         $shop->save();
 
-        return redirect()->to('/'); 
+        return redirect()->to('/');
     }
 
     public function delete(Request $request)
