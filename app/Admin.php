@@ -27,7 +27,8 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function shops() {
+    public function shops()
+    {
         return $this->hasMany('App\Shop');
     }
 }

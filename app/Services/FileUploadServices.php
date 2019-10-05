@@ -4,22 +4,21 @@ namespace App\Services;
 
 class FileUploadServices
 {
-  public static function fileUpload($imageFile){
+    public static function fileUpload($imageFile)
+    {
 
-    $fileNameWithExt = $imageFile->getClientOriginalName();
+        $fileNameWithExt = $imageFile->getClientOriginalName();
 
-    $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-    $extension = $imageFile->getClientOriginalExtension();
+        $extension = $imageFile->getClientOriginalExtension();
 
-    $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+        $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
 
-    $fileData = file_get_contents($imageFile->getRealPath());
+        $fileData = file_get_contents($imageFile->getRealPath());
 
-    $list = [$extension, $fileNameToStore, $fileData];
+        $list = [$extension, $fileNameToStore, $fileData];
 
-    return $list;
-
-  }
-  
+        return $list;
+    }
 }
