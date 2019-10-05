@@ -17,6 +17,12 @@ class ShopController extends Controller
         return view('welcome', compact('shops'));
     }
 
+    public function all()
+    {
+        $shops = Shop::orderBy('shop_id', 'desc')->paginate(15);
+        return view('shop.all', compact('shops'));
+    }
+
     public function shop() 
     {
         $shops = Shop::all();

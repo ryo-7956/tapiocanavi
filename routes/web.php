@@ -15,6 +15,7 @@ Auth::routes();
 
 //トップページ
 Route::get('/', 'ShopController@index');
+Route::get('/shop/all', 'ShopController@all');
 
 //場所から探す
 Route::group(['prefix' => 'prefecture'], function (){
