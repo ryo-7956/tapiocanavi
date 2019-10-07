@@ -38,7 +38,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor
-          key: v1-dependencies-{{ checksum "laravel/composer.json" }}
+          key: v1-dependencies-{{ checksum "composer.json" }}
 
 
       - run:
