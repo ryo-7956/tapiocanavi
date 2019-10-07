@@ -27,7 +27,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "laravel/composer.json" }}
+            - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
 
       - run:
@@ -40,9 +40,6 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "laravel/composer.json" }}
 
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       - run:
           name: Migration & Seeding
