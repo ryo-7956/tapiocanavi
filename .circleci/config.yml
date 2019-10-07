@@ -37,8 +37,7 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
 
+      - run: php artisan migrate
+      - run: php artisan db:seed
 
-      - run:
-          name: Migration & Seeding
-          working_directory: laravel
-          command: php artisan migrate --seed
+      
