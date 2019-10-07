@@ -30,10 +30,7 @@ jobs:
             - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
 
-      - run:
-          name: composer install
-          working_directory: tapiocanavi
-          command: composer install -n --prefer-dist
+      - run: composer install -n --prefer-dist
 
       - save_cache:
           paths:
