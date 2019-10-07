@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.3-stretch-node-browsers
+      - image: circleci/php:7.2.1-apache-node-browsers
       - image: circleci/mysql:5.5
     environment:
       - APP_DEBUG: true
@@ -40,4 +40,3 @@ jobs:
       - run: php artisan migrate
       - run: php artisan db:seed
 
-      
