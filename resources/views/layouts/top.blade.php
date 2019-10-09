@@ -8,7 +8,7 @@
 
         <title>タピオカなび</title>
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="css/simple-line-icons.css" rel="stylesheet">
         <link href="css/themify-icons.css" rel="stylesheet">
         <link href="css/set1.css" rel="stylesheet">
