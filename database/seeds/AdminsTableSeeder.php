@@ -11,7 +11,7 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Admins')->insert([
+        DB::table('admins')->insert([
             'name' => str_random(10),
             'email' => str_random(10).'@gmail.com',
             'password' => bcrypt('secret'),
