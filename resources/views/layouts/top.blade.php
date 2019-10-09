@@ -8,7 +8,11 @@
 
         <title>タピオカなび</title>
 
+        @if(app('env') == 'production')
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        @else
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @endif
         <link href="css/simple-line-icons.css" rel="stylesheet">
         <link href="css/themify-icons.css" rel="stylesheet">
         <link href="css/set1.css" rel="stylesheet">

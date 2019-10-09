@@ -9,7 +9,11 @@
 
     <title>タピオカなび</title>
 
+    @if(app('env') == 'production')
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    @else
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
 </head>
 <body>
     <div id="app">
@@ -71,7 +75,10 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
+    @if(app('env') == 'production')
+    <script src="{{ secure_asset('js/app.js') }}"></script>
+    @else
     <script src="{{ asset('js/app.js') }}"></script>
+    @endif
 </body>
 </html>
