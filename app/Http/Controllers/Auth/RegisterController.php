@@ -70,15 +70,7 @@ class RegisterController extends Controller
 
         $imageFile = $data['image'];
 
-        $list = FileUploadServices::fileUpload($imageFile);
-
-        list($extension, $fileNameToStore, $fileData) = $list;
-
-        $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-        
-        $image = Image::make($data_url);
-        
-        $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+        $path = Storage::disk('s3')->put('/image',$imageFile, 'public/images');
 
         return User::create([
             'name' => $data['name'],
@@ -86,7 +78,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'img_name' => $fileNameToStore,
+            'img_name'=> $path,
         ]);
     }
 }
