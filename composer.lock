@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc757815a3fdf5b65a5d25fbc8463851",
+    "content-hash": "d88798a54d6ccbde6f083b6fb1a8ae2f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.112.18",
+            "version": "3.112.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "462398dcebaa4586089ce30d44750dcf7179b844"
+                "reference": "c84de8adf2b014124b0058013805caf2ae384137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/462398dcebaa4586089ce30d44750dcf7179b844",
-                "reference": "462398dcebaa4586089ce30d44750dcf7179b844",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c84de8adf2b014124b0058013805caf2ae384137",
+                "reference": "c84de8adf2b014124b0058013805caf2ae384137",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-10-09T18:13:06+00:00"
+            "time": "2019-10-11T18:14:55+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",

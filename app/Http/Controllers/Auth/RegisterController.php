@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -67,16 +68,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $image = $data['image'];
+        $imageFile = $data['image'];
 
-        $extension = $data['image']->getClientOriginalExtension();
+        $list = FileUploadServices::fileUpload($imageFile);
 
-        $filename = $data['image']->getClientOriginalName();
+        list($extension, $fileNameToStore, $fileData) = $list;
+
+        $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
         
-        $resize_img = Image::make($image)->resize(400, 400)->encode($extension);
+        $image = Image::make($data_url);
         
-        $path = Storage::disk('s3')->put('/'.$filename,(string)$resize_img, 'public');
-
+        $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
 
         return User::create([
             'name' => $data['name'],
@@ -84,7 +86,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'img_name' => Storage::disk('s3')->url($path),
+            'img_name' => $fileNameToStore,
         ]);
     }
 }
