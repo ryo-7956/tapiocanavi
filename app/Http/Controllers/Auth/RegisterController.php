@@ -77,7 +77,6 @@ class RegisterController extends Controller
         
         $path = Storage::disk('s3')->put('/'.$filename,(string)$resize_img, 'public');
 
-        $url = Storage::disk('s3')->url('uploads/'.$filename);
 
         return User::create([
             'name' => $data['name'],
@@ -85,7 +84,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'img_name' => $url,
+            'img_name' => Storage::disk('s3')->url($path),
         ]);
     }
 }
