@@ -67,10 +67,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $image = $data['image'];
 
-        $imageFile = $data['image'];
+        $extension = $data['image']->getClientOriginalExtension();
 
-        $path = Storage::disk('s3')->put('/image',$imageFile, 'public/images');
+        $filename = $data['image']->getClientOriginalName();
+        
+        $resize_img = Image::make($image)->resize(400, 400)->encode($extension);
+        
+        $path = Storage::disk('s3')->put('/'.$filename,(string)$resize_img, 'public');
+
+        $url = Storage::disk('s3')->url('uploads/'.$filename);
 
         return User::create([
             'name' => $data['name'],
@@ -78,7 +85,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'self_introduction' => $data['self_introduction'],
             'sex' => $data['sex'],
-            'img_name'=> $path,
+            'img_name' => $url,
         ]);
     }
 }
