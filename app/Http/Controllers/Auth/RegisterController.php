@@ -80,44 +80,6 @@ class RegisterController extends Controller
             'sex' => $data['sex'],
             'img_name' => Storage::disk('s3')->url($path),
         ]);
+        return view('/');
     }
 }
-
-
-        //$file = $data['image'];
-
-        // 画像の名前を取得
-        //$filename = $data['image']->getClientOriginalName();
-        // 画像の拡張子を取得
-        //$extension = $data['image']->getClientOriginalExtension();
-        //オリジナル名作成
-        //$fileNameToStore = $filename . '_' . time();
-
-        // 画像をリサイズ
-        //$resize_img = Image::make($file)->resize(400, 400)->encode($extension);
-
-        // s3のuploadsファイルに追加
-        //$path = Storage::disk('s3')->putFileAs('/' .$resize_img,$fileNameToStore, 'public');
-
-        //$imagefile = $data['image'];
-
-        //$list = FileUploadServices::fileUpload($imageFile); 
-
-        //その画像の拡張子、ファイル名_時間_拡張子、画像ファイル
-        //list($extension, $fileNameToStore, $fileData) = $list;
-
-        
-        //$filename = $data['image']->getClientOriginalName();
-        
-        //$resize_img = Image::make($file)->resize(400, 400)->encode($extension);
-
-        //('/'  .画像の名前,リサイズした画像、'public')
-        //$path = Storage::disk('s3')->put('/' .$filename,(string)$resize_img, 'public');
-
-        //return User::create([
-            //'name' => $data['name'],
-            //'email' => $data['email'],
-            //'password' => bcrypt($data['password']),
-            //'self_introduction' => $data['self_introduction'],
-            //'sex' => $data['sex'],
-            //'img_name' => $path,
