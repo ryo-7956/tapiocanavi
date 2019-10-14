@@ -9,6 +9,7 @@ use App\User;
 use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
+use Illuminate\Support\Facades\Storage;
 
 class ReviewController extends Controller
 {
@@ -32,24 +33,17 @@ class ReviewController extends Controller
 
     public function store(Request $request, $shop_id)
     {
-        $imageFile = $request['review_date'];
-
-        $list = FileUploadServices::fileUpload($imageFile);
-
-        list($extension, $fileNameToStore, $fileData) = $list;
-
-        $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-        
-        $review_date = Image::make($data_url);
-        
-        $review_date->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+        $file = $request['review_date'];
+        $data_name = str_random(16);
+        $path = Storage::disk('s3')
+        ->putFileAs('/', $file, now().'_'.$data_name.'.jpg', 'public');
 
         $review = new Review();
         $review->user_id = $request -> user()->id;
         $review->review_shop_id = $shop_id;
         $review->review_title = $request->review_title;
         $review->review_comment = $request->review_comment;
-        $review->review_date = $request->review_date;
+        $review->review_date = Storage::disk('s3')->url($path);
         $review->save();
         return redirect('/');
     }
@@ -65,16 +59,12 @@ class ReviewController extends Controller
         $review = Review::findOrFail($review_id);
 
         if (!is_null($request['review_date'])) {
-            $imageFile = $request['review_date'];
+            $file = $request['review_date'];
+            $data_name = str_random(16);
+            $path = Storage::disk('s3')
+            ->putFileAs('/', $file, now().'_'.$data_name.'.jpg', 'public');
 
-            $list = FileUploadServices::fileUpload($imageFile);
-            list($extension, $fileNameToStore, $fileData) = $list;
-            
-            $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-            $image = Image::make($data_url);
-            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
-
-            $review->review_date = $fileNameToStore;
+            $review->review_date = Storage::disk('s3')->url($path);
         }
 
         $review->review_title = $request->review_title;

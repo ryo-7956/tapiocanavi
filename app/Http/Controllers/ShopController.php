@@ -8,6 +8,7 @@ use App\Prefecture;
 use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
+use Illuminate\Support\Facades\Storage;
 
 class ShopController extends Controller
 {
@@ -43,24 +44,17 @@ class ShopController extends Controller
 
     public function store(Request $request)
     {
-        $imageFile = $request['shop_img'];
-
-        $list = FileUploadServices::fileUpload($imageFile);
-
-        list($extension, $fileNameToStore, $fileData) = $list;
-
-        $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-        
-        $shop_img = Image::make($data_url);
-        
-        $shop_img->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+        $file = $request['shop_img'];
+        $data_name = str_random(16);
+        $path = Storage::disk('s3')
+        ->putFileAs('/', $file, now().'_'.$data_name.'.jpg', 'public');
 
         $shop = new Shop();
         $shop->shop_name = $request->shop_name;
         $shop->prefecture_id = $request->prefecture_id;
         $shop->shop_address = $request->shop_address;
         $shop->shop_description = $request->shop_description;
-        $shop->shop_img = $fileNameToStore;
+        $shop->shop_img = Storage::disk('s3')->url($path);
         $shop->admin_id = $request->user()->id;
         $shop->save();
         return redirect('/');
@@ -78,16 +72,13 @@ class ShopController extends Controller
         $shop = Shop::findOrFail($shop_id);
 
         if (!is_null($request['shop_img'])) {
-            $imageFile = $request['shop_img'];
+            $file = $request['shop_img'];
+            $data_name = str_random(16);
+            $path = Storage::disk('s3')
+            ->putFileAs('/', $file, now().'_'.$data_name.'.jpg', 'public');
 
-            $list = FileUploadServices::fileUpload($imageFile);
-            list($extension, $fileNameToStore, $fileData) = $list;
-            
-            $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-            $image = Image::make($data_url);
-            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+            $shop->shop_img= Storage::disk('s3')->url($path);
 
-            $shop->shop_img = $fileNameToStore;
         }
 
         $shop->shop_name = $request->shop_name;

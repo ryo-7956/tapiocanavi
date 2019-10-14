@@ -36,7 +36,7 @@
                             @forelse ($shop->reviews as $review)
                                 <div class="customer-review_wrap">
                                     <div class="customer-img">
-                                        <img src="/storage/images/{{ $review->user->img_name }}" class="img-fluid-user" alt="#">
+                                        <img src="{{ $review->user->img_name }}" class="img-fluid-user" alt="#">
                                         <p>{{ $review->user->name }}</p>
                                     </div>
                                     <div class="customer-content-wrap">
@@ -48,7 +48,7 @@
                                         </div>
                                         <p class="customer-text">{{ $review->review_comment }}</p>
                                         <ul>
-                                            <li><img src="/storage/images/{{ $review->review_date }}" class="img-fluid-revi" alt="#"></li>
+                                            <li><img src="{{ $review->review_date }}" class="img-fluid-revi" alt="#"></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                 </div>
                     <div class="col-md-4 responsive-wrap">
                         <div class="contact-info">
-                            <img src="/storage/images/{{ $shop->shop_img }}" class="img-fluid" alt="#">
+                            <img src="{{ $shop->shop_img }}" class="img-fluid" alt="#">
                             <div class="address">
                                 <span class="icon-location-pin"></span>
                                 <p>【場所】</p>
