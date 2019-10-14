@@ -10,6 +10,7 @@ use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -37,17 +38,13 @@ class UsersController extends Controller
 
         $user = User::findorFail($id);
 
-        if (!is_null($request['img_name'])) {
-            $imageFile = $request['img_name'];
+        if (!is_null($request['image'])) {
+            $file = $request['image'];
+            $data_name = str_random(16);
+            $path = Storage::disk('s3')
+            ->putFileAs('/', $file, now().'_'.$data_name.'.jpg', 'public');
 
-            $list = FileUploadServices::fileUpload($imageFile);
-            list($extension, $fileNameToStore, $fileData) = $list;
-            
-            $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-            $image = Image::make($data_url);
-            $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
-
-            $user->img_name = $fileNameToStore;
+            $user->img_name = Storage::disk('s3')->url($path);
         }
         
         $user->name = $request->name;

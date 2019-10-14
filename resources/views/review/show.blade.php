@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <hr>
-                        <img src="/storage/images/{{ $review->review_date }}" class="img-fluid" alt="#">
+                        <img src="{{ $review->review_date }}" class="img-fluid" alt="#">
                     </div>
                 </div>
             </div>
