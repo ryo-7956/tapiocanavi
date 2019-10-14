@@ -22,6 +22,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::findorFail($id);
+        
         return view('users.show', compact('user'));
     }
     public function edit($id)

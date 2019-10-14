@@ -6,7 +6,7 @@
         <div class='container'>
             <div class='userInfo'>
                 <div class='userInfo_img'>
-                    <img src="/storage/images/{{$user -> img_name}}">
+                    <img src="{{ $user->img_name }}">
                 </div>
                 <div class='userInfo_name'>{{ $user -> name }}</div>
                     <div class='userInfo_selfIntroduction'>{{ $user -> self_introduction }}</div>
