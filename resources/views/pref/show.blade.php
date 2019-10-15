@@ -17,7 +17,7 @@
                         <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
                             <div class="featured-place-wrap">
                                 <a href="/prefecture/{{ $prefecture->id }}/{{ $shop->shop_id }}">
-                                    <img src="/storage/images/{{ $shop->shop_img }}" class="img-fluid" alt="#">
+                                    <img src="{{ $shop->shop_img }}" class="img-fluid" alt="#">
                                     <div class="featured-title-box">
                                         <h6>{{ $shop->shop_name}}</h6>
                                     </div>
