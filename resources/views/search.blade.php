@@ -28,7 +28,7 @@
                                 </label> 
                             </div>
                             @empty
-                            <a>No shops yet
+                            <a>該当する店はありませんでした。
                             @endforelse
                           </div>
                         </div>
