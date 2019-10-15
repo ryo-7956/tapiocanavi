@@ -7,16 +7,6 @@
   </header>
   <div class='container'>
 
-  @if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-      @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-      @endforeach
-      </ul>
-  </div>
-  @endif
-
     <form class="form mt-5" method="POST" action="/{{ $shop->shop_id }}/review/create" enctype="multipart/form-data">
     {{ csrf_field() }}
       <div class="form-group">
