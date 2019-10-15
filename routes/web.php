@@ -25,8 +25,8 @@ Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 });
 
 //Route::get('/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
-Route::get('/{shop_id}/review', 'prefectureController@reviewcr')->name('review.create');
-Route::post('{shop_id}/review/create', 'ReviewController@store');
+Route::get('/{shop_id}/review', 'prefectureController@reviewcr')->middleware('auth');
+Route::post('{shop_id}/review/create', 'ReviewController@store')->middleware('auth');
 
 
 Route::get('search', 'SearchController@search');
