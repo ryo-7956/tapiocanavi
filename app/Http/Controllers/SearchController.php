@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\shop;
+use App\Shop;
 
 class SearchController extends Controller
 {
@@ -16,14 +17,14 @@ class SearchController extends Controller
         $place = $request->input('place');
 
         $query = shop::query();
-        
         if (!empty($place)) {
             $query->where('shop_address', 'like', '%' . $place . '%')
             ->orWhere('shop_name', 'Like', '%' . $place . '%');
-        } 
+        }
         $shops = $query->get();
-        return view('search')
-        ->with('shops', $shops);
+        return view('search',[
+            'shops'=> $shops,
+        ]);
     }
 }
     
