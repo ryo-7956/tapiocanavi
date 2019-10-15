@@ -1,11 +1,6 @@
 @extends('layouts.layout2')
 
 @section('content')
-<?php 
-ini_set("display_errors", 1);
-error_reporting(E_ALL);
-?>
-
     <div class="signupPage">
         <header class="header">
             <div>アカウントを作成</div>
