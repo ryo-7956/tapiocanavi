@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Review;
-use App\shop;
+use App\Shop;
 use App\User;
 use Intervention\Image\Facades\Image;
 use App\Services\CheckExtensionServices;
