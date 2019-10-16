@@ -26,9 +26,10 @@ class ReviewController extends Controller
         return view('review.show', compact('review'));
     }
     
-    public function create()
+    public function create($shop_id)
     {
-        return view('review.create');
+        $shop = Shop::findorFail($shop_id);
+        return view('review.create', compact('shop'));
     }
 
     public function store(Request $request, $shop_id)

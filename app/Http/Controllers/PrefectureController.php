@@ -31,14 +31,10 @@ class PrefectureController extends Controller
         return view('pref.shop', compact('shop'));
     }
 
-    public function reviewcr($shop_id)
-    {
-        $shop = Shop::findorFail($shop_id);
-        return view('review.create', compact('shop'));
-    }
-
-    //public function review($id,$shop_id,$review_id) {
-        //$review = Review::findorFail($review_id);
-        //return view('pref.review', compact('review'));
+    //public function review($shop_id)
+    //{
+        //$shop = Shop::findorFail($shop_id);
+        //return view('review.create', compact('shop'));
     //}
+
 }
