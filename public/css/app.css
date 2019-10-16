@@ -515,16 +515,6 @@ mark,
   height: auto;
 }
 
-.img-fluid-user {
-  width: 70px;
-  height: auto;
-}
-
-.img-fluid-revi {
-  width: 200px;
-  height: auto;
-}
-
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #f5f8fa;
@@ -16620,6 +16610,12 @@ body {
   padding-right: 200px;
 }
 
+@media (max-width: 768px) {
+  .signupPage .form-group {
+    padding: unset;
+  }
+}
+
 .signupPage .submitBtn {
   background: #3e434b;
   color: #fff;
@@ -16667,6 +16663,12 @@ body {
 .signinPage .form-group {
   padding-left: 200px;
   padding-right: 200px;
+}
+
+@media (max-width: 768px) {
+  .signinPage .form-group {
+    padding: unset;
+  }
 }
 
 .signinPage .loginBtn {
@@ -16949,9 +16951,11 @@ p {
   min-height: 800px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .slider {
-    min-height: 700px;
+    min-height: 550px;
+    background: url("/images/slider-.jpg");
+    background-size: contain;
   }
 }
 
@@ -17010,6 +17014,7 @@ p {
 @media (max-width: 576px) {
   .btn-group {
     display: block;
+    margin: 0 auto;
   }
 }
 
@@ -17988,6 +17993,16 @@ footer {
 .social-counts span {
   font-size: 14px;
   color: #737882;
+}
+
+.img-fluid-user {
+  width: 70px;
+  height: auto;
+}
+
+.img-fluid-revi {
+  width: 200px;
+  height: auto;
 }
 
 .userEditPage .header {

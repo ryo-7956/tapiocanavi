@@ -185,8 +185,10 @@ p {
     background: url("/images/slider.jpg") no-repeat;
     background-size: cover;
     min-height: 800px;
-    @media (max-width: 992px) {
-        min-height: 700px;
+    @media (max-width: 768px) {
+        min-height: 550px;
+        background: url("/images/slider-.jpg");
+        background-size: contain;
     }
 }
 
@@ -231,6 +233,7 @@ p {
     width: 70%;
     @media (max-width: 576px) {
         display: block;
+        margin: 0 auto;
     }
 }
 
