@@ -11,7 +11,8 @@
                     <div class="reserve-seat-block">
                         @auth
                         <div class="review-btn">
-                            <a href="/{{ $shop->shop_id }}/review" class="btn btn-outline-danger">この店のレビューを書く</a>
+                            {{-- <a href="/{{ $shop->shop_id }}/review" class="btn btn-outline-danger">この店のレビューを書く</a> --}}
+                            <a href="/" class="btn btn-outline-danger">この店のレビューを書く</a>
                         </div>
                         @endauth
                         @guest
