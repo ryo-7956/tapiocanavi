@@ -19,6 +19,9 @@
     .form-group {
       padding-left: 200px;
       padding-right: 200px;
+      @media (max-width: 768px) {
+      padding: unset;
+      }
     }
     .loginBtn {
       padding: 12px;

@@ -72,6 +72,9 @@ body {
   .form-group {
     padding-left: 200px;
     padding-right: 200px;
+    @media (max-width: 768px) {
+    padding: unset;
+    }
   }
   .submitBtn {
     background: $main-color;
