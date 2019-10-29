@@ -18,10 +18,18 @@
         <label>パスワード</label>
         <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
     </div>
-      </div>
+  </div>
 
       <div class="form-group text-center">
-      <button type="submit" class="loginBtn">ログイン</button>
+        <button type="submit" class="loginBtn">ログイン</button>
+      </div>
+      <div class="form-group text-center">
+      <form action="{{ route('login') }}" method="POST" class="form">
+        {{ csrf_field() }}
+        <input type="hidden" name="email" value="test1@test.com">
+        <input type="hidden" name="password" value="test1212">
+        <button type="submit" class="btn btn-success">テストユーザーでログイン</button>
+      </form>
       </div>
       <div class="linkToLogin">
         <a href="{{ route('register') }}">アカウント作成はこちら</a>
