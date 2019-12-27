@@ -15,6 +15,11 @@ Auth::routes();
 
 //トップページ
 Route::get('/', 'ShopController@index');
+
+//検索
+Route::get('search', 'SearchController@search');
+
+//店舗一覧
 Route::get('/shop/all', 'ShopController@all');
 
 //場所から探す
@@ -27,9 +32,6 @@ Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 //Route::get('/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
 Route::get('/{shop_id}/review', 'ReviewController@create')->middleware('auth');
 Route::post('{shop_id}/review/create', 'ReviewController@store')->middleware('auth');
-
-
-Route::get('search', 'SearchController@search');
 
 //ログインユーザー画面
 Route::group(['prefix' => 'users', 'middleware' => 'auth:user'], function () {

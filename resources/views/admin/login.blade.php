@@ -1,6 +1,36 @@
-@extends('layouts.app_admin')
+@extends('layouts.layout2')
+
+{{-- @extends('layouts.app_admin') --}}
 
 @section('content')
+
+<div class='signinPage'>
+    <div class='container'>
+        <div class='userIcon'>
+            <i class="fas fa-user fa-3x"></i>
+        </div>
+        <h2 class="title">ログイン</h2>
+        <form class="form" method="POST" action="{{ route('admin.login') }}">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label>メールアドレス</label>
+                <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください" autofocus>
+            </div>
+            <div class="form-group">
+                <label>パスワード</label>
+                <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="loginBtn">ログイン</button>
+            </div>
+            <div class="linkToLogin">
+                <a href="/">トップページへ戻る</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{--
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -62,4 +92,7 @@
         </div>
     </div>
 </div>
+
+--}}
+
 @endsection
