@@ -41,7 +41,7 @@
                         <div class="find-place-img_wrap">
                             <div class="grid">
                                 <figure class="effect-ruby">
-                                    <img src="images/find-place1.jpg" class="img-fluid" alt="img13" />
+                                    <img src="images/tokyo.jpg" class="img-fluid" alt="img13" />
                                     <figcaption>
                                         <h5>東京</h5>
                                     </figcaption>
@@ -57,7 +57,7 @@
                                 <div class="find-place-img_wrap">
                                     <div class="grid">
                                         <figure class="effect-ruby">
-                                            <img src="images/find-place2.jpg" class="img-fluid" alt="img13" />
+                                            <img src="images/kanagawa.jpg" class="img-fluid" alt="img13" />
                                             <figcaption>
                                                 <h5>神奈川</h5>          
                                             </figcaption>
@@ -73,7 +73,7 @@
                                 <div class="find-place-img_wrap">
                                     <div class="grid">
                                         <figure class="effect-ruby">
-                                            <img src="images/find-place3.jpg" class="img-fluid" alt="img13" />
+                                            <img src="images/all.jpg" class="img-fluid" alt="img13" />
                                             <figcaption>
                                                 <h5>場所一覧</h5>
                                             </figcaption>
@@ -91,7 +91,7 @@
                                 <div class="find-place-img_wrap">
                                     <div class="grid">
                                         <figure class="effect-ruby">
-                                            <img src="images/find-place4.jpg" class="img-fluid" alt="img13" />
+                                            <img src="images/fukuoka.jpg" class="img-fluid" alt="img13" />
                                             <figcaption>
                                                 <h5>福岡</h5>
                                             </figcaption>
@@ -107,7 +107,7 @@
                                 <div class="find-place-img_wrap">
                                     <div class="grid">
                                         <figure class="effect-ruby">
-                                            <img src="images/find-place5.jpg" class="img-fluid" alt="img13" />
+                                            <img src="images/oosaka.jpg" class="img-fluid" alt="img13" />
                                             <figcaption>
                                                 <h5>大阪</h5>
                                             </figcaption>
