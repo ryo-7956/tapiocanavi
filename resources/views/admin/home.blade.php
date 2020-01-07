@@ -24,6 +24,12 @@
                                     <a href="/admin/shop">店情報を編集</a>
                                     </span>
                                 </label> 
+                                <label class="custom-checkbox">
+                                  <span class="ti-check-box"></span>
+                                    <span class="custom-control-description">
+                                    <a href="/admin/shop">管理者一覧</a>
+                                    </span>
+                                </label> 
                             </div>
                           </div>
                         </div>

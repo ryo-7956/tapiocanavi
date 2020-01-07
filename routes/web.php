@@ -62,4 +62,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::delete('shop/delete/{shop_id}', 'ShopController@delete');
     Route::get('shop/create', 'ShopController@create');
     Route::post('shop/store', 'ShopController@store');
+    Route::get('user', 'Admin\HomeController@all')->name('admin.all');
 });

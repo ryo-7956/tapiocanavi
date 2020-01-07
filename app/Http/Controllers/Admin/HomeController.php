@@ -28,4 +28,6 @@ class HomeController extends Controller
         $admin = Admin::find(1);
         return view('admin.home');
     }
+
+
 }
