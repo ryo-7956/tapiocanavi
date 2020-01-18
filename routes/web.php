@@ -29,7 +29,7 @@ Route::get('/{id}', 'PrefectureController@show')->name('pref.show');
 Route::get('/{id}/{shop_id}', 'PrefectureController@shop')->name('pref.shop');
 });
 
-//Route::get('/{shop_id}/{review_id}', 'PrefectureController@review')->name('pref.review');
+//レビュー作成画面
 Route::get('/{shop_id}/review', 'ReviewController@create')->middleware('auth');
 Route::post('{shop_id}/review/create', 'ReviewController@store')->middleware('auth');
 
@@ -46,7 +46,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth:user'], function () {
     Route::delete('review/delete/{review_id}', 'ReviewController@delete')->name('review.delete');
 });
 
-
+//管理者用ログイン
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/',         function () { return redirect('/admin/home'); });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
