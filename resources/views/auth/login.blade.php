@@ -1,6 +1,7 @@
 @extends('layouts.layout2')
 
 @section('content')
+
 <div class='signinPage'>
     <div class='container'>
         <div class='userIcon'>
@@ -12,15 +13,6 @@
             <div class="form-group">
                 <label>メールアドレス</label>
                 <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください" autofocus>
-                @if ($errors->any())
-	                <div class="alert alert-danger">
-	                <ul>
-	                @foreach ($errors->all() as $error)
-	                <li>{{ $error }}</li>
-	            @endforeach
-	            </ul>
-	            </div>
-	            @endif
             </div>
             <div class="form-group">
                 <label>パスワード</label>

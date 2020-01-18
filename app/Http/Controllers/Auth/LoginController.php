@@ -37,9 +37,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    //public function showLoginForm()
-    //{
-        //session(['url.intended' => $_SERVER['HTTP_REFERER']]);
-        //return view('auth.login');
-    //}
+    public function showLoginForm()
+    {
+        session(['url.intended' => $_SERVER['HTTP_REFERER']]);
+        return view('auth.login');
+    }
 }
