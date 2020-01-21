@@ -57,6 +57,11 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'image' => 'file|image|mimes:jpeg,png,jpg,gif|max:2000',
             'self_introduction' => 'string|max:255',
+        ],
+        [
+            'name.required' => '名前の入力は必須です',
+            'email.requied' => 'メールアドレスの入力は必須です',
+            'password.requied' => 'パスワードの入力は必須です'
         ]);
     }
 
