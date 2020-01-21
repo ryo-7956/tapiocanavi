@@ -28,20 +28,35 @@
                 </div>
                 <div class="form-group">
                     <label>名前</label>
-                    <input type="text" name="name" class="form-control" placeholder="名前を入力してください">
+                    <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                    @if ($errors->has('name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label>メールアドレス</label>
-                    <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください">
+                    <input type="email" name="email" class="form-control" value="{{ old('email') }}">
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label>パスワード</label>
-                    <em>○○文字以上入力してください</em>
-                    <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
+                    <em>6文字以上入力してください</em>
+                    <input type="password" name="password" class="form-control"　value="{{ old('password') }}">
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
-                    <label>確認用パスワード</label>
-                    <input type="password" name="password_confirmation" class="form-control" placeholder="パスワードを再度入力してください">
+                    <label>パスワード確認のため、再度入力してください</label>
+                    <input type="password" name="password_confirmation" class="form-control">
                 </div>
                 <div class="form-group">
                     <div><label>性別</label></div>
